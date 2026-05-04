@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="AppleTitle" content="wPSPsync Hilfe">
+  <meta name="AppleIcon" content="app-icon.png">
+  <title>wPSPsync Hilfe</title>
+  <style>
+    :root { color-scheme: light dark; font: -apple-system-body; }
+    body { margin: 0; color: CanvasText; background: Canvas; }
+    main { max-width: 840px; margin: 0 auto; padding: 42px 34px 56px; }
+    h1 { font: -apple-system-title1; margin: 0 0 10px; }
+    h2 { font: -apple-system-title2; margin: 34px 0 10px; }
+    p, li { line-height: 1.48; }
+    code { font: -apple-system-caption1; padding: 2px 5px; border-radius: 4px; background: color-mix(in srgb, CanvasText 10%, transparent); }
+    nav { margin: 24px 0 30px; padding: 16px 18px; border-radius: 8px; background: color-mix(in srgb, CanvasText 7%, transparent); }
+    nav a { display: block; margin: 6px 0; color: LinkText; }
+    .note { padding: 12px 14px; border-radius: 8px; background: color-mix(in srgb, LinkText 11%, transparent); }
+    .disclaimer { margin: 0 0 30px; padding: 14px 16px; border-radius: 8px; background: color-mix(in srgb, Mark 22%, transparent); }
+    .disclaimer h2 { font: -apple-system-headline; margin: 0 0 8px; }
+    .disclaimer p { margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>wPSPsync Hilfe</h1>
+    <p>wPSPsync durchsucht einen PSP-Speicherstamm und einen Sync-Stamm, vergleicht Speicherordner und kopiert die neuesten oder fehlenden Spielstände auf die andere Seite.</p>
+
+    <nav aria-label="Hilfethemen">
+      <a href="#roots">Stammordner auswählen</a>
+      <a href="#sync">Spielstände synchronisieren</a>
+      <a href="#backups">Backups und Wiederherstellung</a>
+      <a href="#risks">Risiken und keine Gewährleistung</a>
+      <a href="#licensing">Lizenzen und Marken</a>
+      <a href="#catalog">Spieltitel und Bilder</a>
+      <a href="#troubleshooting">Fehlerbehebung</a>
+    </nav>
+
+    <section id="disclaimer" class="disclaimer" aria-label="Wichtiger Risiko- und Gewährleistungshinweis">
+      <h2>Wichtiger Risiko- und Gewährleistungshinweis</h2>
+      <p>wPSPsync kopiert, ersetzt und stellt Speicherordner wieder her. Ein falsch gewählter Stammordner, ein unterbrochener Kopiervorgang, ein Speicherfehler, ein Softwarefehler oder ein unerwartetes Speicherlayout können zu Datenverlust führen oder neuere Spielstände überschreiben.</p>
+      <p>Die Software wird wie besehen und ohne Gewährleistung jeglicher Art bereitgestellt. Automatische Backups sind eine Sicherheitsfunktion, aber keine Garantie.</p>
+    </section>
+
+    <section id="roots">
+      <h2>Stammordner auswählen</h2>
+      <p>Wählen Sie für beide Seiten den obersten Ordner. Der PSP-Speicherstamm sollte <code>PSP/SAVEDATA</code> enthalten. Der Sync-Stamm ist der Ordner, der <code>PSP/SAVEDATA</code> enthält oder enthalten wird.</p>
+      <p>Wenn Sie versehentlich <code>PSP</code> oder <code>SAVEDATA</code> auswählen, normalisiert wPSPsync den Pfad beim Scannen und Synchronisieren.</p>
+      <p>Ausgewählte Stammordner werden gespeichert und beim nächsten Start wiederhergestellt.</p>
+    </section>
+
+    <section id="sync">
+      <h2>Spielstände synchronisieren</h2>
+      <p>Jede Zeile zeigt den PSP-Zeitstempel, den Sync-Zeitstempel, die Größe, den Spieltitel und den Synchronisierungsstatus.</p>
+      <ul>
+        <li><strong>Synchronisiert</strong>: beide Seiten haben dieselbe neueste Speicherdateizeit.</li>
+        <li><strong>PSP neuer</strong>: die PSP-Kopie wird in den Sync-Stamm kopiert.</li>
+        <li><strong>Sync neuer</strong>: die Sync-Kopie wird auf den PSP-Speicher kopiert.</li>
+        <li><strong>Nur auf PSP</strong> oder <strong>nur in Sync</strong>: die fehlende Seite wird erstellt.</li>
+      </ul>
+      <p>Verwenden Sie die Kontrollkästchen, um auszuwählen, was synchronisiert wird. Die Schaltfläche Synchronisieren wirkt nur auf markierte Zeilen.</p>
+    </section>
+
+    <section id="backups">
+      <h2>Backups und Wiederherstellung</h2>
+      <p>Backups sind standardmäßig aktiviert. Bevor wPSPsync einen neuen Sync-Status schreibt, erstellt es ein Zip-Backup des aktuellen Sync-Stamms.</p>
+      <p>Backups werden unter <code>~/Library/Application Support/wPSPsync/Backups</code> gespeichert. Die App behält die fünf neuesten Backups.</p>
+      <p>Verwenden Sie Backup wiederherstellen, um den ausgewählten Sync-Stamm durch ein gespeichertes Backup zu ersetzen. Wenn Backups aktiviert sind, wird der aktuelle Sync-Status vor der Wiederherstellung gesichert.</p>
+      <p>Deaktivieren Sie Backup vor dem Schreiben erstellen, wenn Sie keine automatischen Backups möchten.</p>
+    </section>
+
+    <section id="risks">
+      <h2>Risiken und keine Gewährleistung</h2>
+      <p>wPSPsync kopiert, ersetzt und stellt Speicherordner wieder her. Ein falsch gewählter Stammordner, ein unterbrochener Kopiervorgang, ein Speicherfehler, ein Softwarefehler oder ein unerwartetes Speicherlayout können zu Datenverlust führen oder neuere Spielstände überschreiben.</p>
+      <p>Prüfen Sie die markierten Zeilen vor dem Synchronisieren und behalten Sie separate Backups wichtiger Spielstände.</p>
+      <p>Automatische Backups sind eine Sicherheitsfunktion, aber keine Garantie. Backups werden auf demselben Mac gespeichert und nur die fünf neuesten Backups werden behalten.</p>
+      <p>Die Software wird wie besehen und ohne Gewährleistung jeglicher Art bereitgestellt.</p>
+    </section>
+
+    <section id="licensing">
+      <h2>Lizenzen und Marken</h2>
+      <p>Der Quellcode von wPSPsync ist unter der MIT-Lizenz lizenziert.</p>
+      <p>Projektressourcen, einschließlich Icons, sind urheberrechtlich durch Nikita Denin geschützt, sofern keine separate Ressourcenlizenz etwas anderes angibt.</p>
+      <p>wPSPsync ist unabhängig und nicht mit Sony Group Corporation, Sony Interactive Entertainment Inc. oder deren verbundenen Unternehmen verbunden, von ihnen empfohlen oder gesponsert.</p>
+      <p>PSP und PlayStation sind Marken oder eingetragene Marken von Sony Interactive Entertainment Inc.; SONY ist eine Marke oder eingetragene Marke von Sony Group Corporation.</p>
+    </section>
+
+    <section id="catalog">
+      <h2>Spieltitel und Bilder</h2>
+      <p>wPSPsync enthält einen kleinen Spielekatalog und kann einen JSON-Katalog importieren. Die App liest auch lokale PSP-Speichericons wie <code>ICON0.PNG</code>.</p>
+      <p>Aktivieren Sie SerialStation-API durchsuchen, um zusätzliche Titel und Bilder zu suchen. Die Netzwerksuche ändert keine Speicherdateien.</p>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Fehlerbehebung</h2>
+      <p class="note">Wenn Ordner nicht geöffnet werden können, wählen Sie die Stammordner erneut in der Seitenleiste aus, damit macOS wPSPsync Zugriff gewährt.</p>
+      <p>Wenn eine PSP nicht automatisch erkannt wird, wählen Sie den PSP-Speicherstamm manuell aus. Die automatische Erkennung erfordert ein gemountetes Volume mit <code>PSP/SAVEDATA</code>.</p>
+      <p>Wenn alte versehentlich verschachtelte <code>SAVEDATA</code>-Ordner aus einer früheren Version vorhanden sind, entfernen Sie sie manuell, nachdem Sie bestätigt haben, dass sie keine benötigten Spielstände enthalten.</p>
+    </section>
+  </main>
+</body>
+</html>

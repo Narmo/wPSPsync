@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01A00000000000000000001D /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000000D /* AppModel.swift */; };
+		01A00000000000000000001E /* CatalogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000000E /* CatalogStore.swift */; };
+		01A00000000000000000001F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000000F /* ContentView.swift */; };
+		01A000000000000000000020 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000010 /* Models.swift */; };
+		01A000000000000000000021 /* SaveScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000011 /* SaveScanner.swift */; };
+		01A000000000000000000022 /* SerialStationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000012 /* SerialStationClient.swift */; };
+		01A000000000000000000023 /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000013 /* SyncEngine.swift */; };
+		01A000000000000000000024 /* wPSPsyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000014 /* wPSPsyncApp.swift */; };
+		01A000000000000000000025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000015 /* Assets.xcassets */; };
+		01A000000000000000000026 /* psp-games.sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000001C /* psp-games.sample.json */; };
+		01A000000000000000000030 /* SerialStationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000012 /* SerialStationClient.swift */; };
+		01A000000000000000000035 /* GameIDParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000033 /* GameIDParserTests.swift */; };
+		01A000000000000000000036 /* SerialStationClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000034 /* SerialStationClientTests.swift */; };
+		01A000000000000000000037 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000010 /* Models.swift */; };
+		01A00000000000000000003A /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000013 /* SyncEngine.swift */; };
+		01A00000000000000000003B /* SyncEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000003C /* SyncEngineTests.swift */; };
+		01A00000000000000000003D /* SaveScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000011 /* SaveScanner.swift */; };
+		01A00000000000000000003E /* SaveScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000003F /* SaveScannerTests.swift */; };
+		01A000000000000000000040 /* BackupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000041 /* BackupStore.swift */; };
+		01A000000000000000000042 /* BackupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000041 /* BackupStore.swift */; };
+		01A000000000000000000043 /* BackupStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000044 /* BackupStoreTests.swift */; };
+		01A000000000000000000045 /* DirectoryBookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000046 /* DirectoryBookmarkStore.swift */; };
+		01A000000000000000000047 /* DirectoryBookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000046 /* DirectoryBookmarkStore.swift */; };
+		01A000000000000000000048 /* wPSPsync.help in Resources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000049 /* wPSPsync.help */; };
+		01A00000000000000000004B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004A /* Localizable.xcstrings */; };
+		01A00000000000000000004C /* SerialStationCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004E /* SerialStationCacheStore.swift */; };
+		01A00000000000000000004D /* SerialStationCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004E /* SerialStationCacheStore.swift */; };
+		01A000000000000000000050 /* SerialStationCacheStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004F /* SerialStationCacheStoreTests.swift */; };
+		AFA40ED12FA8CD8200D85E17 /* wPSPsync.icon in Resources */ = {isa = PBXBuildFile; fileRef = AFA40ED02FA8CD8200D85E17 /* wPSPsync.icon */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01A00000000000000000000A /* wPSPsync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wPSPsync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A00000000000000000000D /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		01A00000000000000000000E /* CatalogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogStore.swift; sourceTree = "<group>"; };
+		01A00000000000000000000F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		01A000000000000000000010 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		01A000000000000000000011 /* SaveScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScanner.swift; sourceTree = "<group>"; };
+		01A000000000000000000012 /* SerialStationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationClient.swift; sourceTree = "<group>"; };
+		01A000000000000000000013 /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
+		01A000000000000000000014 /* wPSPsyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wPSPsyncApp.swift; sourceTree = "<group>"; };
+		01A000000000000000000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01A000000000000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A00000000000000000001A /* wPSPsync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wPSPsync.entitlements; sourceTree = "<group>"; };
+		01A00000000000000000001C /* psp-games.sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "psp-games.sample.json"; sourceTree = "<group>"; };
+		01A000000000000000000031 /* wPSPsyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wPSPsyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A000000000000000000033 /* GameIDParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameIDParserTests.swift; sourceTree = "<group>"; };
+		01A000000000000000000034 /* SerialStationClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationClientTests.swift; sourceTree = "<group>"; };
+		01A00000000000000000003C /* SyncEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngineTests.swift; sourceTree = "<group>"; };
+		01A00000000000000000003F /* SaveScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveScannerTests.swift; sourceTree = "<group>"; };
+		01A000000000000000000041 /* BackupStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupStore.swift; sourceTree = "<group>"; };
+		01A000000000000000000044 /* BackupStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupStoreTests.swift; sourceTree = "<group>"; };
+		01A000000000000000000046 /* DirectoryBookmarkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryBookmarkStore.swift; sourceTree = "<group>"; };
+		01A000000000000000000049 /* wPSPsync.help */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = wPSPsync.help; sourceTree = "<group>"; };
+		01A00000000000000000004A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		01A00000000000000000004E /* SerialStationCacheStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationCacheStore.swift; sourceTree = "<group>"; };
+		01A00000000000000000004F /* SerialStationCacheStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationCacheStoreTests.swift; sourceTree = "<group>"; };
+		AFA40ED02FA8CD8200D85E17 /* wPSPsync.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = wPSPsync.icon; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01A000000000000000000008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01A00000000000000000002E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01A000000000000000000004 = {
+			isa = PBXGroup;
+			children = (
+				01A00000000000000000000B /* Sources */,
+				01A00000000000000000001B /* Resources */,
+				01A000000000000000000032 /* Tests */,
+				01A00000000000000000000C /* wPSPsync */,
+				01A000000000000000000005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01A000000000000000000005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01A00000000000000000000A /* wPSPsync.app */,
+				01A000000000000000000031 /* wPSPsyncTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01A00000000000000000000B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				01A00000000000000000000D /* AppModel.swift */,
+				01A000000000000000000041 /* BackupStore.swift */,
+				01A00000000000000000000E /* CatalogStore.swift */,
+				01A00000000000000000000F /* ContentView.swift */,
+				01A000000000000000000046 /* DirectoryBookmarkStore.swift */,
+				01A000000000000000000010 /* Models.swift */,
+				01A000000000000000000011 /* SaveScanner.swift */,
+				01A00000000000000000004E /* SerialStationCacheStore.swift */,
+				01A000000000000000000012 /* SerialStationClient.swift */,
+				01A000000000000000000013 /* SyncEngine.swift */,
+				01A000000000000000000014 /* wPSPsyncApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		01A00000000000000000000C /* wPSPsync */ = {
+			isa = PBXGroup;
+			children = (
+				01A000000000000000000015 /* Assets.xcassets */,
+				01A000000000000000000018 /* Config */,
+			);
+			path = wPSPsync;
+			sourceTree = "<group>";
+		};
+		01A000000000000000000018 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				01A000000000000000000019 /* Info.plist */,
+				01A00000000000000000001A /* wPSPsync.entitlements */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		01A00000000000000000001B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01A00000000000000000004A /* Localizable.xcstrings */,
+				AFA40ED02FA8CD8200D85E17 /* wPSPsync.icon */,
+				01A00000000000000000001C /* psp-games.sample.json */,
+				01A000000000000000000049 /* wPSPsync.help */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		01A000000000000000000032 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				01A000000000000000000033 /* GameIDParserTests.swift */,
+				01A000000000000000000034 /* SerialStationClientTests.swift */,
+				01A00000000000000000003C /* SyncEngineTests.swift */,
+				01A00000000000000000003F /* SaveScannerTests.swift */,
+				01A00000000000000000004F /* SerialStationCacheStoreTests.swift */,
+				01A000000000000000000044 /* BackupStoreTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01A000000000000000000002 /* wPSPsync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01A000000000000000000006 /* Build configuration list for PBXNativeTarget "wPSPsync" */;
+			buildPhases = (
+				01A000000000000000000007 /* Sources */,
+				01A000000000000000000008 /* Frameworks */,
+				01A000000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wPSPsync;
+			packageProductDependencies = (
+			);
+			productName = wPSPsync;
+			productReference = 01A00000000000000000000A /* wPSPsync.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01A00000000000000000002B /* wPSPsyncTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01A00000000000000000002C /* Build configuration list for PBXNativeTarget "wPSPsyncTests" */;
+			buildPhases = (
+				01A00000000000000000002D /* Sources */,
+				01A00000000000000000002E /* Frameworks */,
+				01A00000000000000000002F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wPSPsyncTests;
+			packageProductDependencies = (
+			);
+			productName = wPSPsyncTests;
+			productReference = 01A000000000000000000031 /* wPSPsyncTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01A000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					01A000000000000000000002 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					01A00000000000000000002B = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 01A000000000000000000003 /* Build configuration list for PBXProject "wPSPsync" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				es,
+				ru,
+				ja,
+				de,
+				Base,
+			);
+			mainGroup = 01A000000000000000000004;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 01A000000000000000000005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01A000000000000000000002 /* wPSPsync */,
+				01A00000000000000000002B /* wPSPsyncTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01A000000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A000000000000000000025 /* Assets.xcassets in Resources */,
+				AFA40ED12FA8CD8200D85E17 /* wPSPsync.icon in Resources */,
+				01A00000000000000000004B /* Localizable.xcstrings in Resources */,
+				01A000000000000000000026 /* psp-games.sample.json in Resources */,
+				01A000000000000000000048 /* wPSPsync.help in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01A00000000000000000002F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01A000000000000000000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A00000000000000000001D /* AppModel.swift in Sources */,
+				01A000000000000000000040 /* BackupStore.swift in Sources */,
+				01A00000000000000000001E /* CatalogStore.swift in Sources */,
+				01A00000000000000000001F /* ContentView.swift in Sources */,
+				01A000000000000000000045 /* DirectoryBookmarkStore.swift in Sources */,
+				01A000000000000000000020 /* Models.swift in Sources */,
+				01A000000000000000000021 /* SaveScanner.swift in Sources */,
+				01A00000000000000000004C /* SerialStationCacheStore.swift in Sources */,
+				01A000000000000000000022 /* SerialStationClient.swift in Sources */,
+				01A000000000000000000023 /* SyncEngine.swift in Sources */,
+				01A000000000000000000024 /* wPSPsyncApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01A00000000000000000002D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A000000000000000000037 /* Models.swift in Sources */,
+				01A000000000000000000030 /* SerialStationClient.swift in Sources */,
+				01A00000000000000000003A /* SyncEngine.swift in Sources */,
+				01A00000000000000000003D /* SaveScanner.swift in Sources */,
+				01A00000000000000000004D /* SerialStationCacheStore.swift in Sources */,
+				01A000000000000000000042 /* BackupStore.swift in Sources */,
+				01A000000000000000000047 /* DirectoryBookmarkStore.swift in Sources */,
+				01A000000000000000000035 /* GameIDParserTests.swift in Sources */,
+				01A000000000000000000036 /* SerialStationClientTests.swift in Sources */,
+				01A00000000000000000003B /* SyncEngineTests.swift in Sources */,
+				01A00000000000000000003E /* SaveScannerTests.swift in Sources */,
+				01A000000000000000000050 /* SerialStationCacheStoreTests.swift in Sources */,
+				01A000000000000000000043 /* BackupStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		01A000000000000000000027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		01A000000000000000000028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		01A000000000000000000029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = wPSPsync;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = wPSPsync/Config/wPSPsync.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = wPSPsync/Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = wPSPsync;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briteapps.wpspsync;
+				PRODUCT_NAME = wPSPsync;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		01A00000000000000000002A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = wPSPsync;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = wPSPsync/Config/wPSPsync.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = wPSPsync/Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = wPSPsync;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briteapps.wpspsync;
+				PRODUCT_NAME = wPSPsync;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		01A000000000000000000038 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briteapps.wpspsync.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		01A000000000000000000039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.briteapps.wpspsync.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01A000000000000000000003 /* Build configuration list for PBXProject "wPSPsync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A000000000000000000027 /* Debug */,
+				01A000000000000000000028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01A000000000000000000006 /* Build configuration list for PBXNativeTarget "wPSPsync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A000000000000000000029 /* Debug */,
+				01A00000000000000000002A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01A00000000000000000002C /* Build configuration list for PBXNativeTarget "wPSPsyncTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A000000000000000000038 /* Debug */,
+				01A000000000000000000039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01A000000000000000000001 /* Project object */;
+}

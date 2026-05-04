@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="AppleTitle" content="Ayuda de wPSPsync">
+  <meta name="AppleIcon" content="app-icon.png">
+  <title>Ayuda de wPSPsync</title>
+  <style>
+    :root { color-scheme: light dark; font: -apple-system-body; }
+    body { margin: 0; color: CanvasText; background: Canvas; }
+    main { max-width: 840px; margin: 0 auto; padding: 42px 34px 56px; }
+    h1 { font: -apple-system-title1; margin: 0 0 10px; }
+    h2 { font: -apple-system-title2; margin: 34px 0 10px; }
+    p, li { line-height: 1.48; }
+    code { font: -apple-system-caption1; padding: 2px 5px; border-radius: 4px; background: color-mix(in srgb, CanvasText 10%, transparent); }
+    nav { margin: 24px 0 30px; padding: 16px 18px; border-radius: 8px; background: color-mix(in srgb, CanvasText 7%, transparent); }
+    nav a { display: block; margin: 6px 0; color: LinkText; }
+    .note { padding: 12px 14px; border-radius: 8px; background: color-mix(in srgb, LinkText 11%, transparent); }
+    .disclaimer { margin: 0 0 30px; padding: 14px 16px; border-radius: 8px; background: color-mix(in srgb, Mark 22%, transparent); }
+    .disclaimer h2 { font: -apple-system-headline; margin: 0 0 8px; }
+    .disclaimer p { margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Ayuda de wPSPsync</h1>
+    <p>wPSPsync analiza una raíz de almacenamiento PSP y una raíz de sincronización, compara carpetas de guardado y copia las partidas más recientes o faltantes al otro lado.</p>
+
+    <nav aria-label="Temas de ayuda">
+      <a href="#roots">Elegir raíces</a>
+      <a href="#sync">Sincronizar partidas guardadas</a>
+      <a href="#backups">Copias de seguridad y restauración</a>
+      <a href="#risks">Riesgos y sin garantía</a>
+      <a href="#licensing">Licencias y marcas comerciales</a>
+      <a href="#catalog">Títulos de juegos e imágenes</a>
+      <a href="#troubleshooting">Solución de problemas</a>
+    </nav>
+
+    <section id="disclaimer" class="disclaimer" aria-label="Aviso importante sobre riesgos y garantía">
+      <h2>Aviso importante sobre riesgos y garantía</h2>
+      <p>wPSPsync copia, reemplaza y restaura carpetas de guardado. Una raíz elegida incorrectamente, una copia interrumpida, un fallo de almacenamiento, un error de software o una estructura de guardado inesperada pueden causar pérdida de datos o sobrescribir partidas más recientes.</p>
+      <p>El software se proporciona tal cual, sin garantía de ningún tipo. Las copias automáticas son una medida de seguridad, no una garantía.</p>
+    </section>
+
+    <section id="roots">
+      <h2>Elegir raíces</h2>
+      <p>Elija la carpeta de nivel superior para ambos lados. La raíz de almacenamiento PSP debe contener <code>PSP/SAVEDATA</code>. La raíz de sincronización es la carpeta que contiene o contendrá <code>PSP/SAVEDATA</code>.</p>
+      <p>Si elige por accidente <code>PSP</code> o <code>SAVEDATA</code>, wPSPsync normaliza la ruta al analizar y sincronizar.</p>
+      <p>Las raíces seleccionadas se guardan y se restauran entre inicios.</p>
+    </section>
+
+    <section id="sync">
+      <h2>Sincronizar partidas guardadas</h2>
+      <p>Cada fila muestra la fecha de PSP, la fecha de sincronización, el tamaño, el título del juego y el estado de sincronización.</p>
+      <ul>
+        <li><strong>Sincronizado</strong>: ambos lados tienen la misma fecha del archivo de guardado más reciente.</li>
+        <li><strong>PSP más reciente</strong>: la copia de PSP se copiará a la raíz de sincronización.</li>
+        <li><strong>Sincronización más reciente</strong>: la copia sincronizada se copiará al almacenamiento PSP.</li>
+        <li><strong>Solo en PSP</strong> o <strong>solo en sincronización</strong>: se creará el lado faltante.</li>
+      </ul>
+      <p>Use las casillas para elegir qué se sincronizará. El botón Sincronizar solo afecta a las filas marcadas.</p>
+    </section>
+
+    <section id="backups">
+      <h2>Copias de seguridad y restauración</h2>
+      <p>Las copias de seguridad están activadas de forma predeterminada. Antes de que wPSPsync escriba un nuevo estado de sincronización, crea una copia zip de la raíz de sincronización actual.</p>
+      <p>Las copias se guardan en <code>~/Library/Application Support/wPSPsync/Backups</code>. La app conserva las cinco copias más recientes.</p>
+      <p>Use Restaurar copia para reemplazar la raíz de sincronización seleccionada con una copia guardada. Cuando las copias están activadas, el estado actual se guarda antes de restaurar.</p>
+      <p>Desactive Crear copia de seguridad antes de escribir si no desea copias automáticas.</p>
+    </section>
+
+    <section id="risks">
+      <h2>Riesgos y sin garantía</h2>
+      <p>wPSPsync copia, reemplaza y restaura carpetas de guardado. Una raíz elegida incorrectamente, una copia interrumpida, un fallo de almacenamiento, un error de software o una estructura de guardado inesperada pueden causar pérdida de datos o sobrescribir partidas más recientes.</p>
+      <p>Revise las filas marcadas antes de sincronizar y mantenga copias separadas de las partidas importantes.</p>
+      <p>Las copias automáticas son una medida de seguridad, no una garantía. Se guardan en el mismo Mac y solo se conservan las cinco copias más recientes.</p>
+      <p>El software se proporciona tal cual, sin garantía de ningún tipo.</p>
+    </section>
+
+    <section id="licensing">
+      <h2>Licencias y marcas comerciales</h2>
+      <p>El código fuente de wPSPsync está licenciado bajo la licencia MIT.</p>
+      <p>Los recursos del proyecto, incluidos los iconos, están protegidos por derechos de autor de Nikita Denin salvo que una licencia de recurso separada indique lo contrario.</p>
+      <p>wPSPsync es independiente y no está afiliado, avalado ni patrocinado por Sony Group Corporation, Sony Interactive Entertainment Inc. ni sus afiliadas.</p>
+      <p>PSP y PlayStation son marcas comerciales o marcas registradas de Sony Interactive Entertainment Inc.; SONY es una marca comercial o marca registrada de Sony Group Corporation.</p>
+    </section>
+
+    <section id="catalog">
+      <h2>Títulos de juegos e imágenes</h2>
+      <p>wPSPsync incluye un pequeño catálogo de juegos y puede importar un catálogo JSON. La app también lee iconos locales de guardados PSP, como <code>ICON0.PNG</code>.</p>
+      <p>Active Buscar en la API de SerialStation para buscar títulos e imágenes adicionales. La búsqueda de red no cambia los archivos de guardado.</p>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Solución de problemas</h2>
+      <p class="note">Si no se pueden abrir las carpetas, elija de nuevo las raíces desde la barra lateral para que macOS conceda acceso a wPSPsync.</p>
+      <p>Si una PSP no se detecta automáticamente, elija la raíz de almacenamiento PSP manualmente. La detección automática requiere un volumen montado que contenga <code>PSP/SAVEDATA</code>.</p>
+      <p>Si existen carpetas <code>SAVEDATA</code> anidadas accidentalmente de una versión anterior, elimínelas manualmente después de confirmar que no contienen partidas necesarias.</p>
+    </section>
+  </main>
+</body>
+</html>

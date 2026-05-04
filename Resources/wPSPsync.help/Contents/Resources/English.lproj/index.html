@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="AppleTitle" content="wPSPsync Help">
+  <meta name="AppleIcon" content="app-icon.png">
+  <title>wPSPsync Help</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font: -apple-system-body;
+    }
+
+    body {
+      margin: 0;
+      color: CanvasText;
+      background: Canvas;
+    }
+
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 42px 34px 56px;
+    }
+
+    h1 {
+      font: -apple-system-title1;
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font: -apple-system-title2;
+      margin: 34px 0 10px;
+    }
+
+    p, li {
+      line-height: 1.48;
+    }
+
+    code {
+      font: -apple-system-caption1;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: color-mix(in srgb, CanvasText 10%, transparent);
+    }
+
+    nav {
+      margin: 24px 0 30px;
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: color-mix(in srgb, CanvasText 7%, transparent);
+    }
+
+    nav a {
+      display: block;
+      margin: 6px 0;
+      color: LinkText;
+    }
+
+    .note {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: color-mix(in srgb, LinkText 11%, transparent);
+    }
+
+    .disclaimer {
+      margin: 0 0 30px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: color-mix(in srgb, Mark 22%, transparent);
+    }
+
+    .disclaimer h2 {
+      font: -apple-system-headline;
+      margin: 0 0 8px;
+    }
+
+    .disclaimer p {
+      margin: 8px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>wPSPsync Help</h1>
+    <p>wPSPsync scans a PSP storage root and a sync root, compares save folders, and copies the newest or missing saves to the other side.</p>
+
+    <nav aria-label="Help topics">
+      <a href="#roots">Choose roots</a>
+      <a href="#sync">Sync saves</a>
+      <a href="#backups">Backups and restore</a>
+      <a href="#risks">Risks and no warranty</a>
+      <a href="#licensing">Licensing and trademarks</a>
+      <a href="#catalog">Game titles and artwork</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <section id="disclaimer" class="disclaimer" aria-label="Important risk and warranty notice">
+      <h2>Important risk and warranty notice</h2>
+      <p>wPSPsync copies, replaces, and restores save folders. A wrong root selection, interrupted copy, storage failure, software bug, or unexpected save layout can cause save data loss or overwrite newer saves.</p>
+      <p>The software is provided as is, without warranty of any kind. Automatic backups are a safety feature, not a guarantee.</p>
+    </section>
+
+    <section id="roots">
+      <h2>Choose roots</h2>
+      <p>Choose the top-level folder for both sides. The PSP storage root should contain <code>PSP/SAVEDATA</code>. The sync root is the folder that contains or will contain <code>PSP/SAVEDATA</code>.</p>
+      <p>If you accidentally choose <code>PSP</code> or <code>SAVEDATA</code>, wPSPsync normalizes the path while scanning and syncing.</p>
+      <p>Selected roots are saved and restored between launches.</p>
+    </section>
+
+    <section id="sync">
+      <h2>Sync saves</h2>
+      <p>Each row shows the PSP timestamp, sync timestamp, size, game title, and sync state.</p>
+      <ul>
+        <li><strong>Synced</strong>: both sides have the same latest save file time.</li>
+        <li><strong>PSP newer</strong>: the PSP copy will be copied to the sync root.</li>
+        <li><strong>Sync newer</strong>: the sync copy will be copied to PSP storage.</li>
+        <li><strong>Only on PSP</strong> or <strong>Only in sync</strong>: the missing side will be created.</li>
+      </ul>
+      <p>Use the checkboxes to choose what will be synced. The Sync button only affects checked rows.</p>
+    </section>
+
+    <section id="backups">
+      <h2>Backups and restore</h2>
+      <p>Backups are enabled by default. Before wPSPsync writes a new sync state, it creates a zip backup of the current sync root.</p>
+      <p>Backups are stored in <code>~/Library/Application Support/wPSPsync/Backups</code>. The app keeps the five newest backups.</p>
+      <p>Use Restore Backup to replace the selected sync root with a saved backup. When backups are enabled, the current sync state is backed up before restore.</p>
+      <p>Disable Create backup before writing if you do not want automatic backups.</p>
+    </section>
+
+    <section id="risks">
+      <h2>Risks and no warranty</h2>
+      <p>wPSPsync copies, replaces, and restores save folders. A wrong root selection, interrupted copy, storage failure, software bug, or unexpected save layout can cause save data loss or overwrite newer saves.</p>
+      <p>Review the checked rows before syncing and keep separate backups of important saves.</p>
+      <p>Automatic backups are a safety feature, not a guarantee. Backups are stored on the same Mac and only the five newest backups are retained.</p>
+      <p>The software is provided as is, without warranty of any kind.</p>
+    </section>
+
+    <section id="licensing">
+      <h2>Licensing and trademarks</h2>
+      <p>The wPSPsync source code is licensed under the MIT License.</p>
+      <p>Project resources, including icon assets, are copyrighted by Nikita Denin unless a separate resource license says otherwise.</p>
+      <p>wPSPsync is independent and is not affiliated with, endorsed by, or sponsored by Sony Group Corporation, Sony Interactive Entertainment Inc., or their affiliates.</p>
+      <p>PSP and PlayStation are trademarks or registered trademarks of Sony Interactive Entertainment Inc.; SONY is a trademark or registered trademark of Sony Group Corporation.</p>
+    </section>
+
+    <section id="catalog">
+      <h2>Game titles and artwork</h2>
+      <p>wPSPsync includes a small game catalog and can import a JSON catalog. The app also reads local PSP save icons such as <code>ICON0.PNG</code>.</p>
+      <p>Enable Search SerialStation API to look up additional titles and artwork. Network lookup does not change save files.</p>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Troubleshooting</h2>
+      <p class="note">If folders cannot be opened, choose the roots again from the sidebar so macOS grants wPSPsync access.</p>
+      <p>If a PSP is not detected automatically, choose the PSP storage root manually. Automatic detection requires a mounted volume that contains <code>PSP/SAVEDATA</code>.</p>
+      <p>If old accidental nested <code>SAVEDATA</code> folders exist from a previous version, remove them manually after confirming they do not contain needed saves.</p>
+    </section>
+  </main>
+</body>
+</html>
