@@ -173,7 +173,7 @@ final class AppModel: ObservableObject {
             }
 
             rows = syncEngine.compare(pspSaves: pspSaves, syncSaves: syncSaves)
-            selectedRowIDs = Set(rows.map(\.id))
+            selectedRowIDs = Set(rows.filter { $0.state != .same }.map(\.id))
             statusMessage = String(localized: "\(rows.count) save folders found.")
         } catch {
             rows = []

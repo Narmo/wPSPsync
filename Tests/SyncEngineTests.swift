@@ -98,6 +98,34 @@ final class SyncEngineTests: XCTestCase {
         XCTAssertFalse(fileManager.fileExists(atPath: saveDataRoot.appendingPathComponent("SAVEDATA").path))
     }
 
+    func testSyncLatestSkipsUnchangedSaves() throws {
+        let engine = SyncEngine()
+        let pspRoot = temporaryRoot.appendingPathComponent("psp", isDirectory: true)
+        let syncRoot = temporaryRoot.appendingPathComponent("sync", isDirectory: true)
+        let sameDate = Date(timeIntervalSince1970: 1_700_000_000)
+        let pspSave = try makeSave(
+            root: pspRoot.appendingPathComponent("PSP/SAVEDATA", isDirectory: true),
+            folderName: "ULUS10000DATA00",
+            fileName: "DATA.BIN",
+            contents: "psp-copy",
+            modifiedAt: sameDate
+        )
+        let syncSave = try makeSave(
+            root: syncRoot.appendingPathComponent("PSP/SAVEDATA", isDirectory: true),
+            folderName: "ULUS10000DATA00",
+            fileName: "DATA.BIN",
+            contents: "sync-copy",
+            modifiedAt: sameDate
+        )
+        let row = SaveComparison(folderName: "ULUS10000DATA00", psp: pspSave, sync: syncSave)
+
+        let syncedCount = try engine.syncLatest(rows: [row], syncRoot: syncRoot, pspRoot: pspRoot)
+
+        XCTAssertEqual(syncedCount, 0)
+        XCTAssertEqual(try readSave(root: pspRoot, folderName: "ULUS10000DATA00"), "psp-copy")
+        XCTAssertEqual(try readSave(root: syncRoot, folderName: "ULUS10000DATA00"), "sync-copy")
+    }
+
     private func makeSave(root: URL, folderName: String, fileName: String, contents: String, modifiedAt: Date) throws -> SaveGame {
         let folderURL = root.appendingPathComponent(folderName, isDirectory: true)
         try fileManager.createDirectory(at: folderURL, withIntermediateDirectories: true)
