@@ -153,6 +153,8 @@ final class AppModel: ObservableObject {
             statusMessage = String(localized: "No PSP storage selected.")
             return
         }
+        let syncRoot = selectedSyncRoot
+        let catalog = catalog
 
         isWorking = true
         defer {
@@ -160,8 +162,12 @@ final class AppModel: ObservableObject {
         }
 
         do {
-            var pspSaves = try scanner.scanPSPSaves(storageRoot: externalRoot, catalog: catalog)
-            var syncSaves = try selectedSyncRoot.map { try scanner.scanSyncSaves(syncRoot: $0, catalog: catalog) } ?? []
+            var (pspSaves, syncSaves) = try await Task.detached(priority: .userInitiated) {
+                let scanner = SaveScanner()
+                let pspSaves = try scanner.scanPSPSaves(storageRoot: externalRoot, catalog: catalog)
+                let syncSaves = try syncRoot.map { try scanner.scanSyncSaves(syncRoot: $0, catalog: catalog) } ?? []
+                return (pspSaves, syncSaves)
+            }.value
 
             var metadata = serialStationCache
             if useSerialStationAPI {
@@ -195,6 +201,7 @@ final class AppModel: ObservableObject {
 
         let selectedRows = rows.filter { selectedRowIDs.contains($0.id) }
         let willWriteChanges = selectedRows.contains { $0.state != .same }
+        let shouldCreateBackup = backupsEnabled && willWriteChanges
 
         isWorking = true
         defer {
@@ -202,12 +209,16 @@ final class AppModel: ObservableObject {
         }
 
         do {
-            if backupsEnabled && willWriteChanges {
-                let backupURL = try backupStore.createBackup(of: syncRoot)
+            if shouldCreateBackup {
+                let backupURL = try await Task.detached(priority: .userInitiated) {
+                    try BackupStore().createBackup(of: syncRoot)
+                }.value
                 refreshBackups()
                 statusMessage = String(localized: "Created backup \(backupURL.lastPathComponent).")
             }
-            let syncedCount = try syncEngine.syncLatest(rows: selectedRows, syncRoot: syncRoot, pspRoot: externalRoot)
+            let syncedCount = try await Task.detached(priority: .userInitiated) {
+                try SyncEngine().syncLatest(rows: selectedRows, syncRoot: syncRoot, pspRoot: externalRoot)
+            }.value
             await scan()
             statusMessage = syncedCount == 0 ? String(localized: "Everything is already in sync.") : String(localized: "Synced \(syncedCount) save folders.")
         } catch {
