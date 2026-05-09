@@ -253,34 +253,6 @@
         }
       }
     },
-    "Choose a PSP storage root and a sync root." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie einen PSP-Speicherstamm und einen Sync-Stamm aus."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elija una raíz de almacenamiento PSP y una raíz de sincronización."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSPストレージルートと同期ルートを選択してください。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите корень хранилища PSP и корень синхронизации."
-          }
-        }
-      }
-    },
     "Choose PSP Root" : {
       "localizations" : {
         "de" : {
@@ -337,30 +309,30 @@
         }
       }
     },
-    "Choose the top-level folder that contains or will contain PSP/SAVEDATA." : {
+    "Choose a PSP storage root and a sync root." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wählen Sie den obersten Ordner, der PSP/SAVEDATA enthält oder enthalten wird."
+            "value" : "Wählen Sie einen PSP-Speicherstamm und einen Sync-Stamm aus."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elija la carpeta de nivel superior que contiene o contendrá PSP/SAVEDATA."
+            "value" : "Elija una raíz de almacenamiento PSP y una raíz de sincronización."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PSP/SAVEDATAを含む、またはこれから含む最上位フォルダを選択してください。"
+            "value" : "PSPストレージルートと同期ルートを選択してください。"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Выберите папку верхнего уровня, которая содержит или будет содержать PSP/SAVEDATA."
+            "value" : "Выберите корень хранилища PSP и корень синхронизации."
           }
         }
       }
@@ -389,6 +361,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выберите том PSP или папку карты памяти верхнего уровня, содержащую PSP/SAVEDATA."
+          }
+        }
+      }
+    },
+    "Choose the top-level folder that contains or will contain PSP/SAVEDATA." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie den obersten Ordner, der PSP/SAVEDATA enthält oder enthalten wird."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elija la carpeta de nivel superior que contiene o contendrá PSP/SAVEDATA."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSP/SAVEDATAを含む、またはこれから含む最上位フォルダを選択してください。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите папку верхнего уровня, которая содержит или будет содержать PSP/SAVEDATA."
           }
         }
       }
@@ -673,34 +673,6 @@
         }
       }
     },
-    "Deleted %@ from both sides." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ von beiden Seiten gelöscht."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ eliminado de ambos lados."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@を両方から削除しました。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ удалено с обеих сторон."
-          }
-        }
-      }
-    },
     "Deleted %@ from PSP storage." : {
       "localizations" : {
         "de" : {
@@ -725,6 +697,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ удалено из хранилища PSP."
+          }
+        }
+      }
+    },
+    "Deleted %@ from both sides." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ von beiden Seiten gelöscht."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ eliminado de ambos lados."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@を両方から削除しました。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ удалено с обеих сторон."
           }
         }
       }
@@ -1010,62 +1010,6 @@
         }
       }
     },
-    "missing" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "fehlt"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "falta"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "なし"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "отсутствует"
-          }
-        }
-      }
-    },
-    "No backups saved." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine Backups gespeichert."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No hay copias de seguridad guardadas."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存されたバックアップはありません。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Резервные копии не сохранены."
-          }
-        }
-      }
-    },
     "No PSP storage root selected" : {
       "localizations" : {
         "de" : {
@@ -1174,6 +1118,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сохранения не найдены"
+          }
+        }
+      }
+    },
+    "No backups saved." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Backups gespeichert."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay copias de seguridad guardadas."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存されたバックアップはありません。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Резервные копии не сохранены."
           }
         }
       }
@@ -1321,34 +1293,6 @@
     "PSP" : {
       "shouldTranslate" : false
     },
-    "PSP newer" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSP neuer"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSP más reciente"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSPが新しい"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSP новее"
-          }
-        }
-      }
-    },
     "PSP Storage" : {
       "localizations" : {
         "de" : {
@@ -1373,6 +1317,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Хранилище PSP"
+          }
+        }
+      }
+    },
+    "PSP newer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSP neuer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSP más reciente"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSPが新しい"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSP новее"
           }
         }
       }
@@ -1429,6 +1401,62 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Требуется хранилище PSP"
+          }
+        }
+      }
+    },
+    "Quit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salir"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終了"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выйти"
+          }
+        }
+      }
+    },
+    "Quit while sync is running?" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden, während die Synchronisierung läuft?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Salir mientras la sincronización está en curso?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同期中に終了しますか？"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выйти во время синхронизации?"
           }
         }
       }
@@ -1797,118 +1825,6 @@
         }
       }
     },
-    "Select a backup before restoring." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie vor der Wiederherstellung ein Backup aus."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccione una copia de seguridad antes de restaurar."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "復元する前にバックアップを選択してください。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите резервную копию перед восстановлением."
-          }
-        }
-      }
-    },
-    "Select a PSP storage root with PSP/SAVEDATA and a sync root that contains or will contain PSP/SAVEDATA." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie einen PSP-Speicherstamm mit PSP/SAVEDATA und einen Sync-Stamm, der PSP/SAVEDATA enthält oder enthalten wird."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccione una raíz de almacenamiento PSP con PSP/SAVEDATA y una raíz de sincronización que contenga o contendrá PSP/SAVEDATA."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PSP/SAVEDATAを含むPSPストレージルートと、PSP/SAVEDATAを含む、またはこれから含む同期ルートを選択してください。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите корень хранилища PSP с PSP/SAVEDATA и корень синхронизации, который содержит или будет содержать PSP/SAVEDATA."
-          }
-        }
-      }
-    },
-    "Select a sync root before restoring a backup." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie vor der Backup-Wiederherstellung einen Sync-Stamm aus."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccione una raíz de sincronización antes de restaurar una copia."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バックアップを復元する前に同期ルートを選択してください。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите корень синхронизации перед восстановлением резервной копии."
-          }
-        }
-      }
-    },
-    "Select a sync root before syncing." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie vor dem Synchronisieren einen Sync-Stamm aus."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccione una raíz de sincronización antes de sincronizar."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "同期する前に同期ルートを選択してください。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите корень синхронизации перед синхронизацией."
-          }
-        }
-      }
-    },
     "Select All" : {
       "localizations" : {
         "de" : {
@@ -1993,6 +1909,118 @@
         }
       }
     },
+    "Select a PSP storage root with PSP/SAVEDATA and a sync root that contains or will contain PSP/SAVEDATA." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie einen PSP-Speicherstamm mit PSP/SAVEDATA und einen Sync-Stamm, der PSP/SAVEDATA enthält oder enthalten wird."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione una raíz de almacenamiento PSP con PSP/SAVEDATA y una raíz de sincronización que contenga o contendrá PSP/SAVEDATA."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PSP/SAVEDATAを含むPSPストレージルートと、PSP/SAVEDATAを含む、またはこれから含む同期ルートを選択してください。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите корень хранилища PSP с PSP/SAVEDATA и корень синхронизации, который содержит или будет содержать PSP/SAVEDATA."
+          }
+        }
+      }
+    },
+    "Select a backup before restoring." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie vor der Wiederherstellung ein Backup aus."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione una copia de seguridad antes de restaurar."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "復元する前にバックアップを選択してください。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите резервную копию перед восстановлением."
+          }
+        }
+      }
+    },
+    "Select a sync root before restoring a backup." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie vor der Backup-Wiederherstellung einen Sync-Stamm aus."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione una raíz de sincronización antes de restaurar una copia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バックアップを復元する前に同期ルートを選択してください。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите корень синхронизации перед восстановлением резервной копии."
+          }
+        }
+      }
+    },
+    "Select a sync root before syncing." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie vor dem Synchronisieren einen Sync-Stamm aus."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione una raíz de sincronización antes de sincronizar."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同期する前に同期ルートを選択してください。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите корень синхронизации перед синхронизацией."
+          }
+        }
+      }
+    },
     "Select sync root" : {
       "localizations" : {
         "de" : {
@@ -2049,34 +2077,6 @@
         }
       }
     },
-    "SerialStation returned an invalid response." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SerialStation hat eine ungültige Antwort zurückgegeben."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SerialStation devolvió una respuesta no válida."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SerialStationから無効な応答が返されました。"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SerialStation вернул недопустимый ответ."
-          }
-        }
-      }
-    },
     "SerialStation returned HTTP %lld." : {
       "localizations" : {
         "de" : {
@@ -2101,6 +2101,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SerialStation вернул HTTP %lld."
+          }
+        }
+      }
+    },
+    "SerialStation returned an invalid response." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SerialStation hat eine ungültige Antwort zurückgegeben."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SerialStation devolvió una respuesta no válida."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SerialStationから無効な応答が返されました。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SerialStation вернул недопустимый ответ."
           }
         }
       }
@@ -2161,6 +2189,62 @@
         }
       }
     },
+    "Sync Root" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sync-Stamm"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Raíz de sincronización"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同期ルート"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Корень синхронизации"
+          }
+        }
+      }
+    },
+    "Sync Selected" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auswahl synchronisieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sincronizar seleccionados"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択項目を同期"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизировать выбранное"
+          }
+        }
+      }
+    },
     "Sync failed" : {
       "localizations" : {
         "de" : {
@@ -2217,34 +2301,6 @@
         }
       }
     },
-    "Sync Root" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sync-Stamm"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Raíz de sincronización"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "同期ルート"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Корень синхронизации"
-          }
-        }
-      }
-    },
     "Sync root required" : {
       "localizations" : {
         "de" : {
@@ -2269,34 +2325,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Требуется корень синхронизации"
-          }
-        }
-      }
-    },
-    "Sync Selected" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Auswahl synchronisieren"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sincronizar seleccionados"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選択項目を同期"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Синхронизировать выбранное"
           }
         }
       }
@@ -2497,8 +2525,64 @@
         }
       }
     },
+    "missing" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fehlt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "falta"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "なし"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "отсутствует"
+          }
+        }
+      }
+    },
     "wPSPsync" : {
       "shouldTranslate" : false
+    },
+    "wPSPsync is currently copying save folders. Quitting now may leave the PSP storage or sync root partially updated." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wPSPsync kopiert gerade Speicherordner. Wenn du jetzt beendest, kann der PSP-Speicher oder Sync-Stamm teilweise aktualisiert bleiben."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wPSPsync está copiando carpetas de partidas guardadas. Si sales ahora, el almacenamiento PSP o la raíz de sincronización pueden quedar actualizados parcialmente."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wPSPsync は現在セーブフォルダをコピーしています。今終了すると、PSPストレージまたは同期ルートが部分的に更新された状態になる可能性があります。"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "wPSPsync сейчас копирует папки сохранений. Если выйти сейчас, хранилище PSP или корень синхронизации могут остаться частично обновлёнными."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

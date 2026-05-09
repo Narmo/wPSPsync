@@ -24,6 +24,7 @@ import SwiftUI
 
 @main
 struct WPSPsyncApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var model = AppModel()
 
     var body: some Scene {
@@ -31,6 +32,9 @@ struct WPSPsyncApp: App {
             ContentView()
                 .environmentObject(model)
                 .frame(minWidth: 1080, minHeight: 700)
+                .onAppear {
+                    appDelegate.model = model
+                }
         }
         .windowStyle(.hiddenTitleBar)
         .commands {
@@ -59,5 +63,25 @@ struct WPSPsyncApp: App {
                 .disabled(model.selectedSyncRoot == nil || model.selectedBackupID == nil || model.isWorking)
             }
         }
+    }
+}
+
+@MainActor
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    weak var model: AppModel?
+
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        QuitConfirmationPolicy.terminationReply(isSyncing: model?.isSyncing == true, confirmQuit: confirmQuitDuringSync)
+    }
+
+    private func confirmQuitDuringSync() -> Bool {
+        let alert = NSAlert()
+        alert.messageText = String(localized: "Quit while sync is running?")
+        alert.informativeText = String(localized: "wPSPsync is currently copying save folders. Quitting now may leave the PSP storage or sync root partially updated.")
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: String(localized: "Quit"))
+        alert.addButton(withTitle: String(localized: "Cancel"))
+
+        return alert.runModal() == .alertFirstButtonReturn
     }
 }

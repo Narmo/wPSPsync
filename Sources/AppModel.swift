@@ -48,6 +48,7 @@ final class AppModel: ObservableObject {
     }
     @Published var statusMessage = String(localized: "Choose a PSP storage root and a sync root.")
     @Published var isWorking = false
+    @Published private(set) var isSyncing = false
     @Published var alert: AppAlert?
     @Published private(set) var backups: [BackupArchive] = []
     @Published var selectedBackupID: BackupArchive.ID?
@@ -204,7 +205,9 @@ final class AppModel: ObservableObject {
         let shouldCreateBackup = backupsEnabled && willWriteChanges
 
         isWorking = true
+        isSyncing = true
         defer {
+            isSyncing = false
             isWorking = false
         }
 

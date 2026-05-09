@@ -35,6 +35,9 @@
 		01A00000000000000000004C /* SerialStationCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004E /* SerialStationCacheStore.swift */; };
 		01A00000000000000000004D /* SerialStationCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004E /* SerialStationCacheStore.swift */; };
 		01A000000000000000000050 /* SerialStationCacheStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A00000000000000000004F /* SerialStationCacheStoreTests.swift */; };
+		01A000000000000000000052 /* QuitConfirmationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000051 /* QuitConfirmationPolicy.swift */; };
+		01A000000000000000000054 /* QuitConfirmationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000051 /* QuitConfirmationPolicy.swift */; };
+		01A000000000000000000056 /* QuitConfirmationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A000000000000000000055 /* QuitConfirmationPolicyTests.swift */; };
 		AFA40ED12FA8CD8200D85E17 /* wPSPsync.icon in Resources */ = {isa = PBXBuildFile; fileRef = AFA40ED02FA8CD8200D85E17 /* wPSPsync.icon */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,8 @@
 		01A00000000000000000004A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		01A00000000000000000004E /* SerialStationCacheStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationCacheStore.swift; sourceTree = "<group>"; };
 		01A00000000000000000004F /* SerialStationCacheStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialStationCacheStoreTests.swift; sourceTree = "<group>"; };
+		01A000000000000000000051 /* QuitConfirmationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitConfirmationPolicy.swift; sourceTree = "<group>"; };
+		01A000000000000000000055 /* QuitConfirmationPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitConfirmationPolicyTests.swift; sourceTree = "<group>"; };
 		AFA40ED02FA8CD8200D85E17 /* wPSPsync.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = wPSPsync.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +119,7 @@
 				01A00000000000000000000F /* ContentView.swift */,
 				01A000000000000000000046 /* DirectoryBookmarkStore.swift */,
 				01A000000000000000000010 /* Models.swift */,
+				01A000000000000000000051 /* QuitConfirmationPolicy.swift */,
 				01A000000000000000000011 /* SaveScanner.swift */,
 				01A00000000000000000004E /* SerialStationCacheStore.swift */,
 				01A000000000000000000012 /* SerialStationClient.swift */,
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				01A000000000000000000033 /* GameIDParserTests.swift */,
+				01A000000000000000000055 /* QuitConfirmationPolicyTests.swift */,
 				01A000000000000000000034 /* SerialStationClientTests.swift */,
 				01A00000000000000000003C /* SyncEngineTests.swift */,
 				01A00000000000000000003F /* SaveScannerTests.swift */,
@@ -281,6 +288,7 @@
 				01A00000000000000000001F /* ContentView.swift in Sources */,
 				01A000000000000000000045 /* DirectoryBookmarkStore.swift in Sources */,
 				01A000000000000000000020 /* Models.swift in Sources */,
+				01A000000000000000000052 /* QuitConfirmationPolicy.swift in Sources */,
 				01A000000000000000000021 /* SaveScanner.swift in Sources */,
 				01A00000000000000000004C /* SerialStationCacheStore.swift in Sources */,
 				01A000000000000000000022 /* SerialStationClient.swift in Sources */,
@@ -306,6 +314,8 @@
 				01A00000000000000000003E /* SaveScannerTests.swift in Sources */,
 				01A000000000000000000050 /* SerialStationCacheStoreTests.swift in Sources */,
 				01A000000000000000000043 /* BackupStoreTests.swift in Sources */,
+				01A000000000000000000054 /* QuitConfirmationPolicy.swift in Sources */,
+				01A000000000000000000056 /* QuitConfirmationPolicyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
