@@ -57,7 +57,7 @@ jobs:
       - name: Compress Swift Artifact
         run: |
           cd build/swift/Build/Products/Release
-          zip -r ../../../../wPSPsync-Swift-macOS.zip wPSPsync.app
+          zip -r "$GITHUB_WORKSPACE/wPSPsync-Swift-macOS.zip" wPSPsync.app
 
       # Flutter Project Steps
       - name: Flutter Dependencies
@@ -78,8 +78,8 @@ jobs:
       - name: Compress Flutter macOS Artifact
         run: |
           cd wpspsync_flutter/build/macos/Build/Products/Release
-          zip -r ../../../../../wPSPsync-Flutter-macOS.zip *.app
-          cd ../../../../../
+          zip -r "$GITHUB_WORKSPACE/wPSPsync-Flutter-macOS.zip" *.app
+
 
       - name: Upload macOS Artifacts
         uses: actions/upload-artifact@v4
@@ -162,8 +162,8 @@ jobs:
       - name: Compress Linux Artifact
         run: |
           cd wpspsync_flutter/build/linux/x64/release/bundle
-          zip -r ../../../../../wPSPsync-Flutter-Linux.zip .
-          cd ../../../../../
+          zip -r "$GITHUB_WORKSPACE/wPSPsync-Flutter-Linux.zip" .
+
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4
