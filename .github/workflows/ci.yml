@@ -3,6 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main, master ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main, master ]
 
@@ -168,3 +170,88 @@ jobs:
         with:
           name: Linux-Build
           path: wPSPsync-Flutter-Linux.zip
+
+  # Job to create the Release
+  release:
+    name: Create GitHub Release
+    needs: [macos-ci, windows-ci, linux-ci]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Organize Release Files
+        run: |
+          mkdir release_files
+          # Move and Rename Windows and Linux
+          cp artifacts/Windows-Build/wPSPsync-Flutter-Windows.zip release_files/wPSPsync-Windows.zip
+          cp artifacts/Linux-Build/wPSPsync-Flutter-Linux.zip release_files/wPSPsync-Linux.zip
+          # Extract and repackage only the Swift version for macOS as wPSPsync-macOS.zip
+          unzip artifacts/macOS-Builds/wPSPsync-Swift-macOS.zip -d macos_temp
+          cd macos_temp && zip -r ../release_files/wPSPsync-macOS.zip wPSPsync.app && cd ..
+
+      - name: Generate Changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: |
+            [changelog]
+            header = "## 📝 Changelog\n"
+            body = """
+            {% if version %}\
+                ### [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+            {% else %}\
+                ### [Unreleased]
+            {% endif %}\
+            {% for group, commits in commits | group_by(attribute="group") %}
+                #### {{ group | upper_first }}
+                {% for commit in commits %}
+                    - {% if commit.scope %}*({{ commit.scope }})* {% endif %}{{ commit.message | upper_first }}\
+                {% endfor %}
+            {% endfor %}\n
+            """
+            footer = ""
+            trim = true
+          args: --verbose --latest --strip header
+        env:
+          OUTPUT: cliff_changelog.md
+
+      - name: Prepare Release Body
+        run: |
+          cat <<EOF > release_body.md
+          ## 📦 Installation Instructions
+
+          ### 🪟 Windows
+          1. Download \`wPSPsync-Windows.zip\`.
+          2. Extract all files to a folder of your choice.
+          3. Run \`wpspsync_flutter.exe\`.
+
+          ### 🍎 macOS (Native Swift Version)
+          1. Download \`wPSPsync-macOS.zip\`.
+          2. Extract the archive.
+          3. Move \`wPSPsync.app\` to your \`/Applications\` folder.
+          *Note: You may need to right-click and select "Open" for the first time due to security settings.*
+
+          ### 🐧 Linux
+          1. Download \`wPSPsync-Linux.zip\`.
+          2. Extract the archive: \`unzip wPSPsync-Linux.zip -d wPSPsync\`.
+          3. Enter the directory and grant execution permissions:
+             \`\`\`bash
+             cd wPSPsync
+             chmod +x wpspsync_flutter
+             \`\`\`
+          4. Run the application: \`./wpspsync_flutter\`.
+
+          ---
+          EOF
+          cat cliff_changelog.md >> release_body.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release_files/*
+          body_path: release_body.md
