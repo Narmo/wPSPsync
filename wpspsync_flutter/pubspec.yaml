@@ -1,0 +1,51 @@
+name: wpspsync_flutter
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  file_picker: ^11.0.2
+  archive: ^4.0.9
+  http: ^1.6.0
+  shared_preferences: ^2.5.5
+  intl: ^0.20.2
+  provider: ^6.1.2
+  window_manager: ^0.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+
+flutter_launcher_icons:
+  android: false
+  ios: false
+  image_path: "assets/icon_composite.png"
+  min_sdk_android: 21
+  web:
+    generate: false
+  windows:
+    generate: true
+    image_path: "assets/icon_composite.png"
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: "assets/icon_composite.png"
+  linux:
+    generate: true
+    image_path: "assets/icon_composite.png"
