@@ -165,6 +165,14 @@ class ScannerService {
           // Skip hidden directories (starts with .)
           if (p.basename(entity.path).startsWith('.')) continue;
 
+          // Optimization/Security: Only consider it a save if it contains a PARAM.SFO
+          // This prevents system folders like 'lib' or 'data' from being listed.
+          var sfoFile = File(p.join(entity.path, 'PARAM.SFO'));
+          var sfoFileLower = File(p.join(entity.path, 'param.sfo'));
+          if (!await sfoFile.exists() && !await sfoFileLower.exists()) {
+            continue;
+          }
+
           var save = await _makeSaveGame(entity, catalog);
           saves.add(save);
         }

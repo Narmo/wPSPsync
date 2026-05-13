@@ -33,6 +33,10 @@ void main() {
     final file = File(p.join(folderDir.path, fileName));
     await file.writeAsString(contents);
     
+    // We now require PARAM.SFO to consider a directory a save folder
+    final sfo = File(p.join(folderDir.path, 'PARAM.SFO'));
+    await sfo.writeAsString('fake-sfo-content');
+    
     // In tests, we rely on the object's modifiedAt directly for the mock,
     // so we don't strictly need to alter the file system timestamp here.
     return SaveGame(

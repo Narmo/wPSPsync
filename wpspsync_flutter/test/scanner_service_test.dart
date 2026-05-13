@@ -23,11 +23,10 @@ void main() {
   Future<void> writeSaveFile(Directory folder, String contents, DateTime modifiedAt) async {
     final file = File(p.join(folder.path, 'DATA.BIN'));
     await file.writeAsString(contents);
-    // Setting modification date isn't easily supported cross-platform in Dart natively,
-    // but the test logic doesn't strictly depend on the OS reporting this modified date
-    // if we mock it, however `ScannerService` reads real stats.
-    // For testing the scanner actually reads dates, we would need to mock `File.stat` or use a clock.
-    // Since we just want to ensure the logic runs without crashing, we'll write the file and let it use the current time.
+    
+    // We now require PARAM.SFO to consider a directory a save folder
+    final sfo = File(p.join(folder.path, 'PARAM.SFO'));
+    await sfo.writeAsString('fake-sfo-content');
   }
 
   test('resolves PSP storage root from root, PSP, and SAVEDATA folders', () async {

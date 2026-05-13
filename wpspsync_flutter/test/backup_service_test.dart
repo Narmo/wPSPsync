@@ -25,6 +25,7 @@ void main() {
     final save = Directory(p.join(syncRoot.path, 'PSP', 'SAVEDATA', 'ULUS10000DATA00'));
     await save.create(recursive: true);
     await File(p.join(save.path, 'DATA.BIN')).writeAsString('original');
+    await File(p.join(save.path, 'PARAM.SFO')).writeAsString('fake-sfo');
 
     final backupFile = await store.createBackup(syncRoot);
     
