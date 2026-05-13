@@ -18,6 +18,15 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       # Swift Project Steps
       - name: Swift Unit Tests
@@ -26,7 +35,10 @@ jobs:
             -project wPSPsync.xcodeproj \
             -scheme wPSPsync \
             -destination 'platform=macOS' \
-            -quiet
+            -quiet \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
 
       - name: Build Swift Application
         run: |
@@ -35,7 +47,10 @@ jobs:
             -scheme wPSPsync \
             -destination 'platform=macOS' \
             -configuration Release \
-            -derivedDataPath build/swift
+            -derivedDataPath build/swift \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
       
       - name: Compress Swift Artifact
         run: |
@@ -61,7 +76,8 @@ jobs:
       - name: Compress Flutter macOS Artifact
         run: |
           cd wpspsync_flutter/build/macos/Build/Products/Release
-          zip -r ../../../../wPSPsync-Flutter-macOS.zip wPSPsync.app
+          zip -r ../../../../../wPSPsync-Flutter-macOS.zip wPSPsync.app
+          cd ../../../../../
 
       - name: Upload macOS Artifacts
         uses: actions/upload-artifact@v4
@@ -82,6 +98,15 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/AppData/Local/Pub/Cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       - name: Flutter Dependencies
         run: |
@@ -115,6 +140,15 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       - name: Install Linux Dependencies
         run: |
@@ -133,8 +167,7 @@ jobs:
 
       - name: Compress Linux Artifact
         run: |
-          cd wpspsync_flutter/build/linux/x64/release/bundle
-          zip -r ../../../../../wPSPsync-Flutter-Linux.zip .
+          zip -r wPSPsync-Flutter-Linux.zip wpspsync_flutter/build/linux/x64/release/bundle/*
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4
