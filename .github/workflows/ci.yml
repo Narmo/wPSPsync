@@ -167,7 +167,9 @@ jobs:
 
       - name: Compress Linux Artifact
         run: |
-          zip -r wPSPsync-Flutter-Linux.zip wpspsync_flutter/build/linux/x64/release/bundle/*
+          cd wpspsync_flutter/build/linux/x64/release/bundle
+          zip -r ../../../../../wPSPsync-Flutter-Linux.zip .
+          cd ../../../../../
 
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v4
