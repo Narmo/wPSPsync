@@ -33,8 +33,15 @@ class ScannerService {
         } catch (_) {}
       }
     } else if (Platform.isLinux) {
-      // On Linux, common mount points are /media and /mnt
-      for (var path in ['/media/${Platform.environment['USER']}', '/media', '/mnt']) {
+      // On Linux, common mount points are /media, /run/media and /mnt
+      final user = Platform.environment['USER'] ?? Platform.environment['LOGNAME'] ?? '';
+      for (var path in [
+        if (user.isNotEmpty) '/media/$user',
+        if (user.isNotEmpty) '/run/media/$user',
+        '/media',
+        '/run/media',
+        '/mnt'
+      ]) {
         var dir = Directory(path);
         if (await dir.exists()) {
           try {
@@ -81,23 +88,35 @@ class ScannerService {
 
   // Identifies if a directory is a valid PSP storage root
   Future<Directory?> resolvePSPStorageRoot(Directory dir) async {
-    // Check if PSP/SAVEDATA exists inside the directory
-    if (await Directory(p.join(dir.path, 'PSP', 'SAVEDATA')).exists()) {
-      return dir;
-    }
+    try {
+      // 1. Direct check (fastest)
+      if (await Directory(p.join(dir.path, 'PSP', 'SAVEDATA')).exists()) {
+        return dir;
+      }
 
-    // Check if the directory itself is "PSP" and contains "SAVEDATA"
-    if (p.basename(dir.path).toUpperCase() == 'PSP' &&
-        await Directory(p.join(dir.path, 'SAVEDATA')).exists()) {
-      return dir.parent;
-    }
+      // 2. Case-insensitive check for Linux/macOS
+      var entities = await dir.list().toList();
+      for (var entity in entities) {
+        if (entity is Directory && p.basename(entity.path).toUpperCase() == 'PSP') {
+          var pspEntities = await entity.list().toList();
+          for (var pspEntity in pspEntities) {
+            if (pspEntity is Directory && p.basename(pspEntity.path).toUpperCase() == 'SAVEDATA') {
+              return dir;
+            }
+          }
+        }
+      }
 
-    // Check if the directory itself is "SAVEDATA" and is inside "PSP"
-    if (p.basename(dir.path).toUpperCase() == 'SAVEDATA' &&
-        p.basename(dir.parent.path).toUpperCase() == 'PSP' &&
-        await dir.exists()) {
-      return dir.parent.parent;
-    }
+      // 3. Check if the directory itself is "PSP" and contains "SAVEDATA"
+      if (p.basename(dir.path).toUpperCase() == 'PSP') {
+        var pspEntities = await dir.list().toList();
+        for (var pspEntity in pspEntities) {
+          if (pspEntity is Directory && p.basename(pspEntity.path).toUpperCase() == 'SAVEDATA') {
+            return dir.parent;
+          }
+        }
+      }
+    } catch (_) {}
 
     return null;
   }
