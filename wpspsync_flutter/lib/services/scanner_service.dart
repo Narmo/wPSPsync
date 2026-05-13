@@ -116,6 +116,12 @@ class ScannerService {
           }
         }
       }
+
+      // 4. Check if the directory itself is "SAVEDATA" and is inside "PSP"
+      if (p.basename(dir.path).toUpperCase() == 'SAVEDATA' &&
+          p.basename(dir.parent.path).toUpperCase() == 'PSP') {
+        return dir.parent.parent;
+      }
     } catch (_) {}
 
     return null;
