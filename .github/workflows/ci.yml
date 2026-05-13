@@ -76,7 +76,7 @@ jobs:
       - name: Compress Flutter macOS Artifact
         run: |
           cd wpspsync_flutter/build/macos/Build/Products/Release
-          zip -r ../../../../../wPSPsync-Flutter-macOS.zip wPSPsync.app
+          zip -r ../../../../../wPSPsync-Flutter-macOS.zip *.app
           cd ../../../../../
 
       - name: Upload macOS Artifacts
