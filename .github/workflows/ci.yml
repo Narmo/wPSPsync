@@ -100,14 +100,6 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Cache Flutter dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/AppData/Local/Pub/Cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
-
       - name: Flutter Dependencies
         run: |
           cd wpspsync_flutter
