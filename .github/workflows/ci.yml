@@ -53,7 +53,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
-      
+
       - name: Compress Swift Artifact
         run: |
           cd build/swift/Build/Products/Release
@@ -225,16 +225,16 @@ jobs:
           cat <<EOF > release_body.md
           ## 📦 Installation Instructions
 
-          ### 🪟 Windows
-          1. Download \`wPSPsync-Windows.zip\`.
-          2. Extract all files to a folder of your choice.
-          3. Run \`wpspsync_flutter.exe\`.
-
-          ### 🍎 macOS (Native Swift Version)
+          ### 🍎 macOS
           1. Download \`wPSPsync-macOS.zip\`.
           2. Extract the archive.
           3. Move \`wPSPsync.app\` to your \`/Applications\` folder.
           *Note: You may need to right-click and select "Open" for the first time due to security settings.*
+
+          ### 🪟 Windows
+          1. Download \`wPSPsync-Windows.zip\`.
+          2. Extract all files to a folder of your choice.
+          3. Run \`wpspsync_flutter.exe\`.
 
           ### 🐧 Linux
           1. Download \`wPSPsync-Linux.zip\`.
