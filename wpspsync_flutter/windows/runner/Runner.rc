@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "wpspsync_flutter" "\0"
+            VALUE "CompanyName", "BriteApps" "\0"
+            VALUE "FileDescription", "wPSPsync" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "wpspsync_flutter" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "wpspsync_flutter.exe" "\0"
-            VALUE "ProductName", "wpspsync_flutter" "\0"
+            VALUE "InternalName", "wPSPsync" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 BriteApps. All rights reserved." "\0"
+            VALUE "OriginalFilename", "wPSPsync.exe" "\0"
+            VALUE "ProductName", "wPSPsync" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

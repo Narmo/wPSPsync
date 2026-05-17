@@ -222,7 +222,7 @@ jobs:
           ### 🪟 Windows
           1. Download \`wPSPsync-Windows.zip\`.
           2. Extract all files to a folder of your choice.
-          3. Run \`wpspsync_flutter.exe\`.
+          3. Run \`wPSPsync.exe\`.
 
           ### 🐧 Linux
           1. Download \`wPSPsync-Linux.zip\`.
@@ -230,9 +230,9 @@ jobs:
           3. Enter the directory and grant execution permissions:
              \`\`\`bash
              cd wPSPsync
-             chmod +x wpspsync_flutter
+             chmod +x wpspsync
              \`\`\`
-          4. Run the application: \`./wpspsync_flutter\`.
+          4. Run the application: \`./wpspsync\`.
 
           ---
           EOF
