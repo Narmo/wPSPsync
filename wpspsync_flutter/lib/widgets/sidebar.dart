@@ -2,7 +2,39 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../services/app_model.dart';
+
+String _getTranslatedStatus(AppLocalizations loc, String message) {
+  if (message == "Choose a PSP storage root and a sync root.") return loc.chooseAPspStorageRootAndASyncRoot;
+  if (message == "No PSP storage selected.") return loc.noPspStorageSelected;
+  if (message == "PSP storage detected. Choose it to grant access.") return loc.pspStorageDetectedChooseItToGrantAccess;
+  if (message == "No PSP storage root with PSP/SAVEDATA detected.") return loc.noPspStorageRootWithPspSavedataDetected;
+  if (message == "Everything is already in sync.") return loc.everythingIsAlreadyInSync;
+  
+  // Regex matches
+  final lookingUpMatch = RegExp(r'Looking up (\d+) titles').firstMatch(message);
+  if (lookingUpMatch != null) {
+    return loc.lookingUpLldTitlesOnSerialstation(int.parse(lookingUpMatch.group(1)!));
+  }
+  
+  final foundMatch = RegExp(r'(\d+) save folders found').firstMatch(message);
+  if (foundMatch != null) {
+    return loc.lldSaveFoldersFound(int.parse(foundMatch.group(1)!));
+  }
+  
+  final syncedMatch = RegExp(r'Synced (\d+) save folders').firstMatch(message);
+  if (syncedMatch != null) {
+    return loc.syncedLldSaveFolders(int.parse(syncedMatch.group(1)!));
+  }
+  
+  final importedMatch = RegExp(r'Imported (\d+) catalog entries').firstMatch(message);
+  if (importedMatch != null) {
+    return loc.importedLldCatalogEntries(int.parse(importedMatch.group(1)!));
+  }
+  
+  return message;
+}
 
 class Sidebar extends StatelessWidget {
   const Sidebar({super.key});
@@ -10,6 +42,7 @@ class Sidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<AppModel>();
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       width: 280,
@@ -35,12 +68,12 @@ class Sidebar extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'wPSPsync',
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, letterSpacing: 0.5),
+                    Text(
+                      loc.wpspsync,
+                      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, letterSpacing: 0.5),
                     ),
                     Text(
-                      model.statusMessage,
+                      _getTranslatedStatus(loc, model.statusMessage),
                       style: const TextStyle(
                         fontSize: 11,
                         color: Colors.grey,
@@ -62,73 +95,73 @@ class Sidebar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // PSP Storage Section
-                  const SectionHeader(
-                    title: 'PSP Storage',
+                  SectionHeader(
+                    title: loc.pspStorage,
                     icon: Icons.usb,
                   ),
                   const SizedBox(height: 8),
                   PathChip(
                     path: model.selectedExternalRoot?.path,
-                    placeholder: 'No PSP storage root selected',
+                    placeholder: loc.noPspStorageRootSelected,
                   ),
                   const SizedBox(height: 6),
                   if (model.externalCandidates.isEmpty) ...[
-                    const Text(
-                      'No PSP storage root with PSP/SAVEDATA detected.',
-                      style: TextStyle(fontSize: 11, color: Colors.grey),
+                    Text(
+                      loc.noPspStorageRootWithPspSavedataDetected,
+                      style: const TextStyle(fontSize: 11, color: Colors.grey),
                     ),
                     const SizedBox(height: 6),
                   ],
                   _ActionButton(
                     icon: Icons.folder_outlined,
-                    label: 'Choose PSP Root',
-                    onPressed: () => model.selectExternalRoot(),
+                    label: loc.choosePspRoot,
+                    onPressed: () => model.selectExternalRoot(title: loc.selectPspStorageRoot),
                   ),
                   const SizedBox(height: 24),
 
                   // Sync Root Section
-                  const SectionHeader(
-                    title: 'Sync Root',
+                  SectionHeader(
+                    title: loc.syncRoot,
                     icon: Icons.cloud_upload_outlined,
                   ),
                   const SizedBox(height: 8),
                   PathChip(
                     path: model.selectedSyncRoot?.path,
-                    placeholder: 'No sync root selected',
+                    placeholder: loc.noSyncRootSelected,
                   ),
                   const SizedBox(height: 6),
                   _ActionButton(
                     icon: Icons.folder_special_outlined,
-                    label: 'Choose Sync Root',
-                    onPressed: () => model.selectSyncRoot(),
+                    label: loc.chooseSyncRoot,
+                    onPressed: () => model.selectSyncRoot(title: loc.syncRoot),
                   ),
                   const SizedBox(height: 24),
 
                   // Game Catalog Section
-                  const SectionHeader(
-                    title: 'Game Catalog',
+                  SectionHeader(
+                    title: loc.gameCatalog,
                     icon: Icons.bar_chart_outlined,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '${model.catalog.games.length} title entries loaded',
+                    loc.lldTitleEntriesLoaded(model.catalog.games.length),
                     style: const TextStyle(fontSize: 12, color: Colors.grey),
                   ),
                   const SizedBox(height: 6),
                   _MacCheckbox(
-                    label: 'Search SerialStation API',
+                    label: loc.searchSerialstationApi,
                     value: model.useSerialStationAPI,
                     onChanged: (val) => model.toggleSerialStation(val!),
                   ),
                   const SizedBox(height: 6),
                   _ActionButton(
                     icon: Icons.file_download_outlined,
-                    label: 'Import JSON',
+                    label: loc.importJson,
                     onPressed: () async {
                       FilePickerResult? result = await FilePicker.pickFiles(
                         type: FileType.custom,
                         allowedExtensions: ['json'],
-                        dialogTitle: 'Import PSP game catalog',
+                        dialogTitle: loc.importPspGameCatalog,
                       );
                       if (result != null && result.files.single.path != null) {
                         await model.importCatalog(File(result.files.single.path!));
@@ -138,21 +171,21 @@ class Sidebar extends StatelessWidget {
                   const SizedBox(height: 24),
 
                   // Backups Section
-                  const SectionHeader(
-                    title: 'Backups',
+                  SectionHeader(
+                    title: loc.backups,
                     icon: Icons.archive_outlined,
                   ),
                   const SizedBox(height: 8),
                   _MacCheckbox(
-                    label: 'Create backup before writing',
+                    label: loc.createBackupBeforeWriting,
                     value: model.backupsEnabled,
                     onChanged: (val) => model.toggleBackups(val!),
                   ),
                   const SizedBox(height: 6),
                   if (model.backups.isEmpty)
-                    const Padding(
-                      padding: EdgeInsets.only(top: 4, bottom: 8),
-                      child: Text('No backups saved.', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4, bottom: 8),
+                      child: Text(loc.noBackupsSaved, style: const TextStyle(fontSize: 12, color: Colors.grey)),
                     )
                   else
                     Container(
@@ -183,18 +216,18 @@ class Sidebar extends StatelessWidget {
                   const SizedBox(height: 8),
                   _ActionButton(
                     icon: Icons.settings_backup_restore,
-                    label: 'Restore Backup',
+                    label: loc.restoreBackup.replaceAll('?', ''), // Temporary fix if string has ?
                     onPressed: (model.selectedSyncRoot == null || model.selectedBackupId == null || model.isWorking)
                         ? null
                         : () async {
                             final confirm = await showDialog<bool>(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text('Restore backup?'),
-                                content: const Text('This will replace the current sync root contents with the selected backup.'),
+                                title: Text(loc.restoreBackup),
+                                content: Text(loc.thisWillReplaceTheCurrentSyncRootContentsWith(model.backups.firstWhere((b) => b.id == model.selectedBackupId).title)),
                                 actions: [
-                                  TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
-                                  TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('Restore')),
+                                  TextButton(onPressed: () => Navigator.pop(context, false), child: Text(loc.cancel)),
+                                  TextButton(onPressed: () => Navigator.pop(context, true), child: Text(loc.restore)),
                                 ],
                               ),
                             );

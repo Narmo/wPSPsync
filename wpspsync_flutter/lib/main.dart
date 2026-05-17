@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'services/app_model.dart';
 import 'widgets/sidebar.dart';
 import 'widgets/save_list_view.dart';
@@ -41,6 +43,13 @@ class WPSPsyncApp extends StatelessWidget {
       title: 'wPSPsync',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF1E1E22), // macOS dark background
@@ -83,20 +92,21 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
   @override
   void onWindowClose() async {
     final model = context.read<AppModel>();
+    final loc = AppLocalizations.of(context)!;
     
     if (model.isSyncing) {
       final confirm = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Quit while sync is running?'),
-          content: const Text('wPSPsync is currently copying save folders. Quitting now may leave the PSP storage or sync root partially updated.'),
+          title: Text(loc.quitWhileSyncIsRunning.replaceAll('?', '')),
+          content: Text(loc.wpspsyncIsCurrentlyCopyingSaveFoldersQuittingNowMayLeaveThePspStorageOrSyncRootPartiallyUpdated),
           icon: const Icon(Icons.warning_amber_rounded, color: Colors.orange, size: 48),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+            TextButton(onPressed: () => Navigator.pop(context, false), child: Text(loc.cancel)),
             TextButton(
               onPressed: () => Navigator.pop(context, true), 
               style: TextButton.styleFrom(foregroundColor: Colors.red),
-              child: const Text('Quit'),
+              child: Text(loc.quit),
             ),
           ],
         ),
@@ -127,6 +137,7 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<AppModel>();
+    final loc = AppLocalizations.of(context)!;
 
     return CallbackShortcuts(
       bindings: {
@@ -138,7 +149,7 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
       child: Focus(
         autofocus: true,
         child: PlatformMenuBar(
-          menus: _buildMenus(model),
+          menus: _buildMenus(context, model),
           child: Material(
             color: const Color(0xFF1E1E22),
             child: Row(
@@ -156,13 +167,13 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
                       actions: [
                         IconButton(
                           icon: const Icon(Icons.refresh),
-                          tooltip: 'Rescan PSP storage root and sync root (Cmd/Ctrl+R)',
+                          tooltip: '${loc.rescanPspStorageRootAndSyncRoot} (Cmd/Ctrl+R)',
                           onPressed: model.isWorking ? null : () => model.refreshVolumes(),
                         ),
                         const SizedBox(width: 8),
                         IconButton(
                           icon: const Icon(Icons.sync),
-                          tooltip: 'Sync selected items (Cmd/Ctrl+S)',
+                          tooltip: '${loc.syncSelected} (Cmd/Ctrl+S)',
                           onPressed: (model.selectedRowIDs.isEmpty || 
                                       model.selectedExternalRoot == null || 
                                       model.selectedSyncRoot == null || 
@@ -184,10 +195,11 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
     );
   }
 
-  List<PlatformMenuItem> _buildMenus(AppModel model) {
+  List<PlatformMenuItem> _buildMenus(BuildContext context, AppModel model) {
+    final loc = AppLocalizations.of(context)!;
     return [
       PlatformMenu(
-        label: 'wPSPsync',
+        label: loc.wpspsync,
         menus: [
           if (PlatformProvidedMenuItem.hasMenu(PlatformProvidedMenuItemType.about))
             const PlatformProvidedMenuItem(type: PlatformProvidedMenuItemType.about),
@@ -196,15 +208,15 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
         ],
       ),
       PlatformMenu(
-        label: 'Sync',
+        label: loc.syncRoot.replaceAll(' Root', '').replaceAll(' Raiz', ''), // Temporary hack to reuse string
         menus: [
           PlatformMenuItem(
-            label: 'Scan',
+            label: loc.scan,
             shortcut: const SingleActivator(LogicalKeyboardKey.keyR, meta: true),
             onSelected: model.isWorking ? null : () => _scan(model),
           ),
           PlatformMenuItem(
-            label: 'Sync Selected',
+            label: loc.syncSelected,
             shortcut: const SingleActivator(LogicalKeyboardKey.keyS, meta: true),
             onSelected: (model.selectedRowIDs.isEmpty || 
                           model.selectedExternalRoot == null || 
@@ -214,7 +226,7 @@ class _MainScreenState extends State<MainScreen> with WindowListener {
                   : () => _syncSelected(model),
           ),
           PlatformMenuItem(
-            label: 'Restore Backup',
+            label: loc.restoreBackup.replaceAll('?', ''),
             onSelected: (model.selectedSyncRoot == null || model.selectedBackupId == null || model.isWorking)
                 ? null
                 : () => model.restoreSelectedBackup(),

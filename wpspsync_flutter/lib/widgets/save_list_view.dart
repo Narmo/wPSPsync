@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/app_model.dart';
+import '../l10n/app_localizations.dart';
 import '../models/models.dart';
 import 'save_row.dart';
 
@@ -34,6 +35,7 @@ class _SaveListViewState extends State<SaveListView> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<AppModel>();
+    final loc = AppLocalizations.of(context)!;
     final hasRows = model.rows.isNotEmpty;
     final filtered = _applyFilter(model.rows);
 
@@ -44,9 +46,9 @@ class _SaveListViewState extends State<SaveListView> {
           padding: const EdgeInsets.fromLTRB(24, 24, 24, 12),
           child: Row(
             children: [
-              const Text(
-                'Save Games',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+              Text(
+                loc.saveGames,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
               ),
               const Spacer(),
               OutlinedButton(
@@ -69,8 +71,8 @@ class _SaveListViewState extends State<SaveListView> {
                 ),
                 child: Text(
                   model.selectedRowIDs.length == model.rows.length
-                      ? 'Deselect All'
-                      : 'Select All',
+                      ? loc.deselectAll
+                      : loc.selectAll,
                   style: const TextStyle(fontSize: 12),
                 ),
               ),
@@ -90,7 +92,7 @@ class _SaveListViewState extends State<SaveListView> {
                 style: const TextStyle(fontSize: 13, color: Colors.white),
                 cursorColor: Colors.white54,
                 decoration: InputDecoration(
-                  hintText: 'Filter by name or game ID…',
+                  hintText: loc.filterByNameOrGameId,
                   hintStyle: const TextStyle(fontSize: 13, color: Colors.white38),
                   prefixIcon: const Icon(Icons.search, size: 16, color: Colors.white38),
                   suffixIcon: _query.isNotEmpty
@@ -127,7 +129,7 @@ class _SaveListViewState extends State<SaveListView> {
           child: !hasRows
               ? _buildEmptyView(context)
               : filtered.isEmpty
-                  ? _buildNoResultsView()
+                  ? _buildNoResultsView(context)
                   : ListView.separated(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       itemCount: filtered.length,
@@ -143,6 +145,7 @@ class _SaveListViewState extends State<SaveListView> {
   }
 
   Widget _buildEmptyView(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -153,17 +156,17 @@ class _SaveListViewState extends State<SaveListView> {
             color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.3),
           ),
           const SizedBox(height: 16),
-          const Text(
-            'No Saves Found',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          Text(
+            loc.noSavesFound,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 8),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 48),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 48),
             child: Text(
-              'Select a PSP storage root with PSP/SAVEDATA and a sync root that contains or will contain PSP/SAVEDATA.',
+              loc.selectAPspStorageRootWithPspSavedataAndASyncRootThatContainsOrWillContainPspSavedata,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
         ],
@@ -171,7 +174,8 @@ class _SaveListViewState extends State<SaveListView> {
     );
   }
 
-  Widget _buildNoResultsView() {
+  Widget _buildNoResultsView(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -179,7 +183,7 @@ class _SaveListViewState extends State<SaveListView> {
           const Icon(Icons.search_off, size: 48, color: Colors.white24),
           const SizedBox(height: 12),
           Text(
-            'No results for "$_query"',
+            loc.noResultsFor(_query),
             style: const TextStyle(fontSize: 15, color: Colors.white54),
           ),
         ],

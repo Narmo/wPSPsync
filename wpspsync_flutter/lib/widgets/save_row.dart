@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/models.dart';
 import '../services/app_model.dart';
+import '../l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'save_icon.dart';
 
@@ -85,7 +86,7 @@ class SaveRow extends StatelessWidget {
                         const SizedBox(width: 12),
                         if (row.latestModifiedAt != null)
                           Text(
-                            DateFormat("MMM d, yyyy 'at' HH:mm").format(row.latestModifiedAt!),
+                            DateFormat.yMMMd(Localizations.localeOf(context).toString()).add_jm().format(row.latestModifiedAt!),
                             style: const TextStyle(fontSize: 11, color: Colors.grey),
                           ),
                         const SizedBox(width: 12),
@@ -103,9 +104,9 @@ class SaveRow extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  _DateLabel(title: 'PSP', date: row.psp?.modifiedAt),
+                  _DateLabel(title: AppLocalizations.of(context)!.psp, date: row.psp?.modifiedAt),
                   const SizedBox(height: 2),
-                  _DateLabel(title: 'Sync', date: row.sync?.modifiedAt),
+                  _DateLabel(title: AppLocalizations.of(context)!.sync('').trim(), date: row.sync?.modifiedAt),
                 ],
               ),
             ],
@@ -116,16 +117,17 @@ class SaveRow extends StatelessWidget {
   }
 
   void _showContextMenu(BuildContext context, AppModel model, Offset position) async {
+    final loc = AppLocalizations.of(context)!;
     final items = <PopupMenuEntry<int>>[];
     
     if (row.psp != null) {
-      items.add(const PopupMenuItem(value: 1, child: Text('Delete from PSP')));
+      items.add(PopupMenuItem(value: 1, child: Text(loc.deleteFromPspStorage.replaceAll('?', ''))));
     }
     if (row.sync != null) {
-      items.add(const PopupMenuItem(value: 2, child: Text('Delete from Sync Root')));
+      items.add(PopupMenuItem(value: 2, child: Text(loc.deleteFromSyncRoot.replaceAll('?', ''))));
     }
     if (row.psp != null && row.sync != null) {
-      items.add(const PopupMenuItem(value: 3, child: Text('Delete from Both')));
+      items.add(PopupMenuItem(value: 3, child: Text(loc.deleteBoth)));
     }
 
     if (items.isEmpty) return;
@@ -138,18 +140,23 @@ class SaveRow extends StatelessWidget {
 
     if (value == null || !context.mounted) return;
 
+    String contentText = '';
+    if (value == 1) contentText = loc.thisWillPermanentlyDeleteFromPspStorage(row.displayTitle);
+    if (value == 2) contentText = loc.thisWillPermanentlyDeleteFromTheSyncRoot(row.displayTitle);
+    if (value == 3) contentText = loc.thisWillPermanentlyDeleteFromPspStorageAndTheSyncRoot(row.displayTitle);
+
     final confirm = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Confirm Deletion'),
-        content: Text('Are you sure you want to delete ${row.displayTitle}? This cannot be undone.'),
+        title: Text(loc.delete),
+        content: Text(contentText),
         icon: const Icon(Icons.delete_forever, color: Colors.red, size: 48),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(loc.cancel)),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('Delete'),
+            child: Text(loc.delete),
           ),
         ],
       ),
@@ -171,7 +178,7 @@ class SaveRow extends StatelessWidget {
   }
 
   String _formatSize(int bytes) {
-    if (bytes == 0) return 'Zero KB';
+    if (bytes == 0) return '0 KB';
     if (bytes < 1024) return '$bytes B';
     if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(1)} KB';
     return '${(bytes / (1024 * 1024)).toStringAsFixed(1)} MB';
@@ -187,27 +194,34 @@ class StateBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     Color bg;
     Color fg;
+    String label = '';
+    final loc = AppLocalizations.of(context)!;
 
     switch (state) {
       case SaveState.same:
         bg = Colors.green.withValues(alpha: 0.16);
         fg = Colors.green;
+        label = loc.synced;
         break;
       case SaveState.pspNewer:
         bg = Colors.blue.withValues(alpha: 0.16);
         fg = Colors.blue;
+        label = loc.pspNewer;
         break;
       case SaveState.syncNewer:
         bg = Colors.orange.withValues(alpha: 0.18);
         fg = Colors.orange;
+        label = loc.syncNewer;
         break;
       case SaveState.onlyPSP:
         bg = Colors.teal.withValues(alpha: 0.16);
         fg = Colors.tealAccent;
+        label = loc.onlyOnPsp;
         break;
       case SaveState.onlySync:
         bg = Colors.purple.withValues(alpha: 0.16);
         fg = Colors.purpleAccent;
+        label = loc.onlyInSync;
         break;
     }
 
@@ -218,7 +232,7 @@ class StateBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
-        state.title,
+        label,
         style: TextStyle(color: fg, fontSize: 10, fontWeight: FontWeight.w600),
       ),
     );
@@ -237,14 +251,16 @@ class _DateLabel extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          width: 32,
-          child: Text(title, textAlign: TextAlign.right, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey)),
+          width: 65,
+          child: Text(title, textAlign: TextAlign.right, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey), maxLines: 1, overflow: TextOverflow.visible),
         ),
         const SizedBox(width: 6),
         SizedBox(
           width: 100,
           child: Text(
-            date != null ? DateFormat('d.MM.yyyy, HH:mm').format(date!) : 'missing',
+            date != null 
+                ? DateFormat.yMd(Localizations.localeOf(context).toString()).add_jm().format(date!) 
+                : AppLocalizations.of(context)!.missing,
             style: const TextStyle(fontSize: 10, color: Colors.grey),
           ),
         ),

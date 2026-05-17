@@ -319,9 +319,9 @@ class AppModel extends ChangeNotifier {
   }
 
   // Directory pickers
-  Future<void> selectExternalRoot() async {
+  Future<void> selectExternalRoot({String? title}) async {
     final path = await FilePicker.getDirectoryPath(
-      dialogTitle: "Select PSP storage root",
+      dialogTitle: title ?? "Select PSP storage root",
     );
     if (path != null) {
       selectedExternalRoot = Directory(path);
@@ -330,9 +330,9 @@ class AppModel extends ChangeNotifier {
     }
   }
 
-  Future<void> selectSyncRoot() async {
+  Future<void> selectSyncRoot({String? title}) async {
     final path = await FilePicker.getDirectoryPath(
-      dialogTitle: "Select sync root",
+      dialogTitle: title ?? "Select sync root",
     );
     if (path != null) {
       selectedSyncRoot = Directory(path);

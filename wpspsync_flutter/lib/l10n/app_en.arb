@@ -1,0 +1,212 @@
+{
+  "lldSaveFoldersFound": "{count} save folders found.",
+  "@lldSaveFoldersFound": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lldTitleEntriesLoaded": "{count} title entries loaded",
+  "@lldTitleEntriesLoaded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "archiveCommandFailed": "Archive command failed.",
+  "backupRequired": "Backup required",
+  "backups": "Backups",
+  "backupsCouldNotBeLoaded": "Backups could not be loaded",
+  "cancel": "Cancel",
+  "catalogCouldNotBeLoaded": "Catalog could not be loaded",
+  "catalogImportFailed": "Catalog import failed",
+  "choosePspRoot": "Choose PSP Root",
+  "chooseSyncRoot": "Choose Sync Root",
+  "chooseAPspStorageRootAndASyncRoot": "Choose a PSP storage root and a sync root.",
+  "chooseTheTopLevelPspVolumeOrMemoryCardFolderThatContainsPspSavedata": "Choose the top-level PSP volume or memory card folder that contains PSP/SAVEDATA.",
+  "chooseTheTopLevelFolderThatContainsOrWillContainPspSavedata": "Choose the top-level folder that contains or will contain PSP/SAVEDATA.",
+  "createBackupBeforeWriting": "Create backup before writing",
+  "createdBackup": "Created backup {item}.",
+  "@createdBackup": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "delete": "Delete",
+  "deleteBoth": "Delete Both",
+  "deleteBothCopies": "Delete both copies?",
+  "deleteFailed": "Delete failed",
+  "deleteFromPspStorage": "Delete from PSP storage?",
+  "deleteFromSyncRoot": "Delete from sync root?",
+  "deletedFromPspStorage": "Deleted {item} from PSP storage.",
+  "@deletedFromPspStorage": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedFromBothSides": "Deleted {item} from both sides.",
+  "@deletedFromBothSides": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedFromTheSyncRoot": "Deleted {item} from the sync root.",
+  "@deletedFromTheSyncRoot": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "deselectAll": "Deselect All",
+  "detectedStorage": "Detected storage",
+  "everythingIsAlreadyInSync": "Everything is already in sync.",
+  "folderSelectionCouldNotBeSaved": "Folder selection could not be saved",
+  "gameCatalog": "Game Catalog",
+  "importJson": "Import JSON",
+  "importPspGameCatalog": "Import PSP game catalog",
+  "importedLldCatalogEntries": "Imported {count} catalog entries.",
+  "@importedLldCatalogEntries": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lookingUpLldTitlesOnSerialstation": "Looking up {count} titles on SerialStation...",
+  "@lookingUpLldTitlesOnSerialstation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noPspStorageRootSelected": "No PSP storage root selected",
+  "noPspStorageRootWithPspSavedataDetected": "No PSP storage root with PSP/SAVEDATA detected.",
+  "noPspStorageSelected": "No PSP storage selected.",
+  "noSavesFound": "No Saves Found",
+  "noBackupsSaved": "No backups saved.",
+  "noSyncRootSelected": "No sync root selected",
+  "notSelectedForSync": "Not selected for sync",
+  "ok": "OK",
+  "onlyInSync": "Only in sync",
+  "onlyOnPsp": "Only on PSP",
+  "psp": "PSP",
+  "pspStorage": "PSP Storage",
+  "pspNewer": "PSP newer",
+  "pspStorageDetectedChooseItToGrantAccess": "PSP storage detected. Choose it to grant access.",
+  "pspStorageRequired": "PSP storage required",
+  "quit": "Quit",
+  "quitWhileSyncIsRunning": "Quit while sync is running?",
+  "rescanPspStorageRootAndSyncRoot": "Rescan PSP storage root and sync root",
+  "restore": "Restore",
+  "restoreBackup": "Restore backup?",
+  "restoreFailed": "Restore failed",
+  "restored": "Restored {item}.",
+  "@restored": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "saveGames": "Save Games",
+  "savedBackups": "Saved backups",
+  "savedFoldersCouldNotBeRestored": "Saved folders could not be restored",
+  "scan": "Scan",
+  "scanFailed": "Scan failed.",
+  "searchSerialstationApi": "Search SerialStation API",
+  "selectAll": "Select All",
+  "selectPspStorageBeforeSyncing": "Select PSP storage before syncing.",
+  "selectPspStorageRoot": "Select PSP storage root",
+  "selectAPspStorageRootWithPspSavedataAndASyncRootThatContainsOrWillContainPspSavedata": "Select a PSP storage root with PSP/SAVEDATA and a sync root that contains or will contain PSP/SAVEDATA.",
+  "selectABackupBeforeRestoring": "Select a backup before restoring.",
+  "selectASyncRootBeforeRestoringABackup": "Select a sync root before restoring a backup.",
+  "selectASyncRootBeforeSyncing": "Select a sync root before syncing.",
+  "selectSyncRoot": "Select sync root",
+  "selectedForSync": "Selected for sync",
+  "serialstationReturnedHttpLld": "SerialStation returned HTTP {count}.",
+  "@serialstationReturnedHttpLld": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "serialstationReturnedAnInvalidResponse": "SerialStation returned an invalid response.",
+  "sync": "Sync {item}",
+  "@sync": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "syncRoot": "Sync Root",
+  "syncSelected": "Sync Selected",
+  "syncFailed": "Sync failed",
+  "syncNewer": "Sync newer",
+  "syncRootRequired": "Sync root required",
+  "syncSelectedSavesByCopyingTheNewestOrMissingSaveFolderToTheOtherSide": "Sync selected saves by copying the newest or missing save folder to the other side",
+  "synced": "Synced",
+  "syncedLldSaveFolders": "Synced {count} save folders.",
+  "@syncedLldSaveFolders": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "thisWillPermanentlyDeleteFromPspStorageAndTheSyncRoot": "This will permanently delete {item} from PSP storage and the sync root.",
+  "@thisWillPermanentlyDeleteFromPspStorageAndTheSyncRoot": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "thisWillPermanentlyDeleteFromPspStorage": "This will permanently delete {item} from PSP storage.",
+  "@thisWillPermanentlyDeleteFromPspStorage": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "thisWillPermanentlyDeleteFromTheSyncRoot": "This will permanently delete {item} from the sync root.",
+  "@thisWillPermanentlyDeleteFromTheSyncRoot": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "thisWillReplaceTheCurrentSyncRootContentsWith": "This will replace the current sync root contents with {item}.",
+  "@thisWillReplaceTheCurrentSyncRootContentsWith": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "missing": "missing",
+  "wpspsync": "wPSPsync",
+  "wpspsyncIsCurrentlyCopyingSaveFoldersQuittingNowMayLeaveThePspStorageOrSyncRootPartiallyUpdated": "wPSPsync is currently copying save folders. Quitting now may leave the PSP storage or sync root partially updated.",
+  "filterByNameOrGameId": "Filter by name or game ID…",
+  "noResultsFor": "No results for \"{item}\"",
+  "@noResultsFor": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  }
+}
