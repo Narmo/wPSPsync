@@ -1,6 +1,6 @@
 # wPSPsync (Flutter Port)
 
-[![CI/CD Pipeline](https://github.com/OniMock/wPSPsync/actions/workflows/ci.yml/badge.svg)](https://github.com/OniMock/wPSPsync/actions)
+[![CI/CD Pipeline](https://github.com/Narmo/wPSPsync/actions/workflows/ci.yml/badge.svg)](https://github.com/Narmo/wPSPsync/actions)
 
 A feature-perfect, cross-platform port of the original wPSPsync macOS application. Built with Flutter, this tool allows you to synchronize PSP save folders between a physical device (or emulator) and a synchronization root (e.g., a cloud-synced folder) with native-like aesthetics and robust logic.
 
@@ -8,14 +8,14 @@ A feature-perfect, cross-platform port of the original wPSPsync macOS applicatio
 
 - **Cross-Platform Compatibility**: Run natively on **Windows, macOS, and Linux**.
 - **Native macOS Aesthetic**: Precise dark mode styling matching the original SwiftUI implementation.
-- **Smart Sync Engine**: 
+- **Smart Sync Engine**:
   - Intelligent comparison of save folders.
   - FAT32 timestamp drift handling (2-second threshold).
   - One-click synchronization of multiple selections.
-- **Automated Backups**: 
+- **Automated Backups**:
   - Integrated ZIP backup system.
   - Automatic 5-file rotation policy to save space while keeping your data safe.
-- **SerialStation API Integration**: 
+- **SerialStation API Integration**:
   - Automatic identification of Game IDs.
   - Fetches official game titles and cover art for a premium experience.
   - Local caching for offline performance.
