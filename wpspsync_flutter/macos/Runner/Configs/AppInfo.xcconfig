@@ -11,4 +11,4 @@ PRODUCT_NAME = wPSPsync
 PRODUCT_BUNDLE_IDENTIFIER = com.briteapps.wpspsync
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 Nikita Denin, OniMock. All rights reserved.

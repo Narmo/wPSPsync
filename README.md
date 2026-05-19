@@ -24,6 +24,12 @@ Automatic backups are a safety feature, not a guarantee. Backups are stored on t
 
 The software is provided "as is", without warranty of any kind. See [LICENSE](LICENSE.txt) for the full MIT no-warranty terms.
 
+## Cross-Platform Support (Windows & Linux)
+
+A Flutter-based version of wPSPsync is available for **Windows**, **Linux**, and **macOS**. It offers the same features and aesthetics as the native macOS app in a cross-platform package.
+
+See [wpspsync_flutter/README.md](wpspsync_flutter/README.md) for details.
+
 ## Run
 
 Open `wPSPsync.xcodeproj` and run the `wPSPsync` scheme.
